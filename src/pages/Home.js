@@ -1,5 +1,5 @@
 import React from "react";
-import Contact from "../components/Contact/Contact";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Hero from "../components/Hero/Hero";
 import Services from "../components/Services/Services";
@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <Team />
       <Services />
-      <Contact/>
+      <Footer/>
     </div>
   );
 }

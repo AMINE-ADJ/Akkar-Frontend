@@ -7,7 +7,7 @@ export default function Header() {
     { name: "Home", link: "#hero" },
     { name: "Our Team", link: "#team" },
     { name: "Our Services", link: "#services" },
-    { name: "Contact Us", link: "#contact" },
+    { name: "Contact Us", link: "#footer" },
   ];
   let [open, setOpen] = useState(false);
 
