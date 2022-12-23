@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 function App() {
   return (
     <div className="bg-white w-full h-screen">
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>

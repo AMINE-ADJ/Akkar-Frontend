@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import Logo from "../assets/logo.svg";
 export default function Header() {
   let Links = [
-    { name: "Home", link: "/" },
-    { name: "Our Team", link: "/team" },
-    { name: "Our Services", link: "/services" },
-    { name: "Contact Us", link: "/contact" },
+    { name: "Home", link: "#hero" },
+    { name: "Our Team", link: "#team" },
+    { name: "Our Services", link: "#services" },
+    { name: "Contact Us", link: "#contact" },
   ];
   let [open, setOpen] = useState(false);
 
   return (
     <div className="shadow-lg shadow-akkar-orange w-full fixed top-0 left-0 z-10">
       <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7">
-        <Link to={"/"}>
+        <HashLink smooth to={"#hero"}>
           <img className="w-[150px] h-16 pb-2 " src={Logo} />
-        </Link>
+        </HashLink>
 
         <div
           onClick={() => setOpen(!open)}
@@ -31,15 +32,16 @@ export default function Header() {
         >
           {Links.map((link) => (
             <li key={link.name} className="md:mx-16 text-lg md:my-0 my-3">
-              <Link
+              <HashLink
+                smooth
                 to={link.link}
                 className="  hover:text-akkar-orange  text-black duration-200 font-Inter font-medium "
               >
                 {link.name}
-              </Link>
+              </HashLink>
             </li>
           ))}
-          <Link to="/login">
+          <Link to="/">
             <button
               className="bg-akkar-orange text-white font-Inter py-2 px-9 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
     duration-200"

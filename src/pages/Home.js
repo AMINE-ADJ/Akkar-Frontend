@@ -1,30 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import HomePic from "../assets/homepage-picture.svg";
+import Contact from "../components/Contact/Contact";
+import Header from "../components/Header";
+import Hero from "../components/Hero/Hero";
+import Services from "../components/Services/Services";
+import Team from "../components/Team/Team";
+
 export default function Home() {
   return (
-    <div className="bg-akkar-white-creme w-full h-screen pb-14 ">
-      <div className="flex md:flex-row flex-col-reverse items-center justify-between">
-        <div className="flex flex-col items-center md:items-start md:pl-28 pt-20 md:gap-16 gap-5 ">
-          <div className="font-medium font-Inter text-akkar-black text-3xl text-center md:text-left md:text-5xl w-[500px] leading-tight ">
-            Find your place of dream with AKKAR
-          </div>
-          <div className=" text-xl text-center md:text-left md:text-3xl font-Inter text-akkar-gray font-normal w-[480px]">
-            Buying real estate is not only the best way, the quickest way, the
-            safest way, but the only way to become wealthy
-          </div>
-          <Link to="/login">
-            <button
-              className=" flex items-center gap-3 font-medium bg-akkar-orange text-white text-xl md:text-2xl font-Inter py-2 md:py-6 px-14 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
-    duration-200"
-            >
-              <ion-icon size="large" name="logo-google"></ion-icon> Login with
-              Google
-            </button>
-          </Link>
-        </div>
-        <img className=" md:h-[650px]" src={HomePic} />
-      </div>
+    <div>
+      <Header />
+      <Hero />
+      <Team />
+      <Services />
+      <Contact/>
     </div>
   );
 }
