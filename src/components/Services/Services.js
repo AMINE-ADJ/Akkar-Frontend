@@ -7,6 +7,7 @@ let obj={
   title:["Search A Real  Estate","Add your annoucement","Contact"],
   des:["Take a step to an immersive searching experience to find your real estate","you can easily add your announcement and get offers","As buyer or seller you can easily contact the  other side"],
 }
+
 export default function Services() {
   return (
     <section
