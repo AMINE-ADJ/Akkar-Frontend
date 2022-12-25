@@ -7,7 +7,7 @@ export default function Hero() {
       className="bg-akkar-white-creme w-full min-w-fit h-fit pb-32 md:mb-0  "
       id="hero"
     >
-      <div className="flex md:flex-row flex-col-reverse items-center justify-between">
+      <div className="flex md:flex-row flex-col-reverse items-center justify-between ">
         <div className="flex flex-col items-center md:items-start md:pl-28 pt-20 md:gap-16 gap-5 ">
           <div className="font-medium font-Inter text-akkar-black text-2xl text-center md:text-left md:text-5xl w-[500px] leading-tight ">
             Find your place of dream with AKKAR
@@ -26,10 +26,11 @@ export default function Hero() {
             </button>
           </Link>
         </div>
-        <div className="">
+        <div className="  md:w-[720px]">
           <img className=" md:h-[700px]  " src={HeroPic} />
         </div>
       </div>
+      
     </section>
   );
 }
