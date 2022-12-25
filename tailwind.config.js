@@ -11,17 +11,17 @@ module.exports = {
         "akkar-black": "#200E01",
         "akkar-brown": "#211C19",
         "akkar-brown-creme": "#E9D2C1",
-        "akkar-orange-third" : "#B28666"
+        "akkar-orange-third": "#B28666",
       },
       fontFamily: {
         Inter: ["Inter", "sans-serif"],
       },
-      fontWeight:{
-        "akkar-bold" :500,
+      fontWeight: {
+        "akkar-bold": 500,
       },
-      boxShadow:{
-        "akkar-shadow": "0px -10px 17px 14px #E95913"
-      }
+      boxShadow: {
+        "akkar-shadow": "0px -10px 17px 14px #E95913",
+      },
     },
   },
   plugins: [],

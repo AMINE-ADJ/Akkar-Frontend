@@ -7,7 +7,7 @@ import Team from "../components/Team/Team";
 
 export default function Home() {
   return (
-    <div>
+    <div className="w-full min-w-fit h-screen">
       <Header />
       <Hero />
       <Team />
