@@ -7,11 +7,7 @@ export default function Header() {
     { name: "Home", link: "#hero" },
     { name: "Our Team", link: "#team" },
     { name: "Our Services", link: "#services" },
-<<<<<<< HEAD
     { name: "Contact Us", link: "#footer" },
-=======
-    { name: "Contact Us", link: "#contact" },
->>>>>>> origin/yanis
   ];
   let [open, setOpen] = useState(false);
 
