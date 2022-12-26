@@ -11,7 +11,7 @@ let obj={
 export default function Services() {
   return (
     <section
-      className=" w-full h-[1500px] md:h-[900px] pt-32 pb-10 "
+      className=" w-full h-[1700px] md:h-[900px] pt-32 pb-10 "
       id="services"
     >
       <div className="flex flex-col items-center gap-y-4 md:gap-y-0 ">
