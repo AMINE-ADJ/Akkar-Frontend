@@ -10,8 +10,8 @@ export default function Home() {
     <div className="w-full min-w-fit h-screen">
       <Header />
       <Hero />
-      <Team />
       <Services />
+      <Team />
       <Footer/>
     </div>
   );

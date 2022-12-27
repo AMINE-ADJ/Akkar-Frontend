@@ -10,6 +10,8 @@ module.exports = {
         "akkar-gray": "#50463C",
         "akkar-black": "#200E01",
         "akkar-brown": "#211C19",
+        "akkar-brown-second" :"#B28666",
+    
         "akkar-brown-creme": "#E9D2C1",
         "akkar-orange-third": "#B28666",
       },
@@ -21,8 +23,13 @@ module.exports = {
       },
       boxShadow: {
         "akkar-shadow": "0px -10px 17px 14px #E95913",
+        "card-shadow" : " 6px 7px 4px #B38666",
       },
+      zIndex: {
+        "100":100,
+      }
     },
+   
   },
   plugins: [],
 };
