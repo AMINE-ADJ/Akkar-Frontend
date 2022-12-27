@@ -1,8 +1,10 @@
 import React , { useRef, useState } from "react";
+
 import Card from "./card.js"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+
 import { Navigation } from "swiper";
 import "./styles.css";
 export default function slider() {
@@ -13,9 +15,13 @@ export default function slider() {
         <SwiperSlide className="flex flex-row justify-evenly items-center"><Card></Card>
         <Card></Card>
         <Card></Card>
+       
         </SwiperSlide>
         <SwiperSlide className="flex flex-row justify-center items-center"><Card></Card></SwiperSlide>
+       
+        
       </Swiper>
+
       </div>
 
 
