@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HeroPic from "../../assets/homepage-picture.svg";
+import HeroPic from "../../../assets/homepage-picture.svg";
 export default function Hero() {
   return (
     <section

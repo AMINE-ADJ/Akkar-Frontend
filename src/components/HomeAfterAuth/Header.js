@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import Logo from "../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
 export default function Header() {
   let Links = [
-    { name: "Home", link: "#hero" },
-    { name: "Our Team", link: "#team" },
-    { name: "Our Services", link: "#services" },
+    { name: "Home", link: "#hero2" },
+    // { name: "Our Services", link: "#services" },
+    { name: "Messages", link: "" },
     { name: "Contact Us", link: "#footer" },
   ];
   let [open, setOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <div className="shadow-lg shadow-akkar-orange w-full fixed top-0 left-0 z-100">
       <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7">
-        <HashLink smooth to={"#hero"}>
+        <HashLink smooth to={"#hero2"}>
           <img className="w-[150px] h-16 pb-2 " src={Logo} />
         </HashLink>
 
@@ -41,12 +41,12 @@ export default function Header() {
               </HashLink>
             </li>
           ))}
-          <Link to="/">
+          <Link to="">
             <button
-              className="bg-akkar-orange text-white font-Inter py-2 px-9 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
+              className="bg-akkar-orange-second text-akkar-orange font-Inter py-2 px-9 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
     duration-200"
             >
-              Connectez-vous
+              <ion-icon name="add-outline"></ion-icon> Post estate
             </button>
           </Link>
         </ul>

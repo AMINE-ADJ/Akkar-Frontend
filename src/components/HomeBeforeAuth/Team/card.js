@@ -1,9 +1,9 @@
 import React from "react";
-import amine from "../../assets/amine.svg";
-import fouad from "../../assets/fouad.svg"
-import facebook from "../../assets/facebook.svg"
-import linkedin from "../../assets/linkedin.svg"
-import github from "../../assets/github.svg"
+import amine from "../../../assets/amine.svg";
+import fouad from "../../../assets/fouad.svg"
+import facebook from "../../../assets/facebook.svg"
+import linkedin from "../../../assets/linkedin.svg"
+import github from "../../../assets/github.svg"
 
 export default function card(props) {  //ki ndiro l contenu w YB3TOLI TSAWRHOM W NSGMO DESCRIPTION  npassi data bl props
     return (
