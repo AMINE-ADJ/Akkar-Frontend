@@ -1,10 +1,10 @@
 import React from "react";
 import search from "../../assets/search.svg"
 import check from "../../assets/check.svg";
-export default function SearchSection() {
-  return (
-    <section className="w-full h-fit mt-[90px] bg-akkar-black" id="hero2">
- <div className="w-full h-[250px] md:h-[400px] bg-wood-bg bg-cover ">
+export default function Searchbar() {
+    return(
+        <section className="w-full min-w-fit h-fit mt-[90px] pb-32 md:mb-0 flex justify-center">
+            <div className="w-full h-[250px] md:h-[400px] bg-wood-bg bg-cover ">
             <div className="w-full h-[250px] md:h-[400px]  bg-filter flex flex-col justify-around items-center">
                 <h1 className="text-center text-white text-3xl md:text-5xl md:mt-[50px]">Start searching a real estate</h1>
                 <div id="searchbar" className=" w-[500px] md:w-[980px] h-[60px] md:h-[80px] flex flex-row justify-center items-center md:mt-[20px]">
@@ -48,7 +48,7 @@ export default function SearchSection() {
             </div>
             </div>
            
-
-    </section>
-  );
-}
+        </section>
+        
+          );
+    }
