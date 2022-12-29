@@ -11,7 +11,7 @@ module.exports = {
         "akkar-black": "#200E01",
         "akkar-brown": "#211C19",
         "akkar-brown-second" :"#B28666",
-    
+          "filter" : "rgba(70, 29, 10, 0.5)",
         "akkar-brown-creme": "#E9D2C1",
         "akkar-orange-third": "#B28666",
       },
@@ -27,7 +27,12 @@ module.exports = {
       },
       zIndex: {
         "100":100,
-      }
+      },
+      backgroundImage: {
+        'wood-bg': "url('../src/assets/Wood_bg.svg')",
+        
+      },
+      
     },
    
   },
