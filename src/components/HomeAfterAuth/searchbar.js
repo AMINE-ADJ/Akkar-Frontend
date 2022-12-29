@@ -1,6 +1,6 @@
 import React from "react";
-import search from ".././assets/search.svg"
-import check from ".././assets/check.svg";
+import search from "../../assets/search.svg"
+import check from "../../assets/check.svg";
 export default function Searchbar() {
     return(
         <section className="w-full min-w-fit h-fit mt-[90px] pb-32 md:mb-0 flex justify-center">
