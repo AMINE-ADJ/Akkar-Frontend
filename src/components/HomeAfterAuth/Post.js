@@ -3,9 +3,11 @@ import localisation from "../../assets/Localisation.svg";
 import clock from "../../assets/clock.svg";
 import send from "../../assets/Send.svg";
 import arrows from "../../assets/Arrows.svg";
+import { Link } from "react-router-dom";
 export default function Post(props) {
     return(
-           <div className="flex flex-col justify-between items-center w-[420px] h-[510px] rounded-[7px] border-2 border-[#E7E9EB]">
+        <Link to="/details">
+        <div className="flex flex-col justify-between items-center w-[420px] h-[510px] rounded-[7px] border-2 border-[#E7E9EB] cursor-pointer">
                 <div className="w-[420px] h-[270px] rounded-[7px] ">
                     <img src={props.img} className="w-[100%] h-[100%] object-cover rounded-t-[7px] mt-[-2px]"></img>
                 </div>
@@ -43,5 +45,7 @@ export default function Post(props) {
                     </div>
             
            </div>
+        </Link>
+           
           );
     }
