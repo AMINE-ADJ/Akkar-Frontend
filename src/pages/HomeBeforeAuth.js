@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../components/Footer";
+import Footer from "../components/SharedComponents/Footer";
 import Header from "../components/HomeBeforeAuth/Header";
 import Hero from "../components/HomeBeforeAuth/Hero/Hero";
 import Services from "../components/HomeBeforeAuth/Services/Services";
@@ -12,7 +12,7 @@ export default function HomeBeforeAuth() {
       <Hero />
       <Services />
       <Team />
-      <Footer/>
+      <Footer />
     </div>
   );
 }
