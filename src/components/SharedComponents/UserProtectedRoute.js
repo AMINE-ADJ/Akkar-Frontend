@@ -1,14 +1,19 @@
-import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
-export default function ProtectedRoute() {
+
+export default function UserProtectedRoute({ children }) {
   const user = useSelector((state) => state.user.value);
+
   console.log(user);
+  // console.log(user.isAdmin);
   if (user.isAdmin) {
+    // alert("you are not authorized to get in here! it's for normal users.");
     return <Navigate to="/admin" replace />;
+
+    // return;
   } else {
-    alert("you are not authorized to get in here! it's for admins.");
-    return <Navigate to="/authenticated" />;
+    console.log("Im in User now!");
+    return children;
   }
 }

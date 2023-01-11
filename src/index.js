@@ -17,11 +17,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <GoogleOAuthProvider clientId="32582144331-e74a3ev66hp4t9v81mvmj0t7gk1kgjm4.apps.googleusercontent.com">
-        <Provider store={store}>
+      <Provider store={store}>
+        <GoogleOAuthProvider clientId="32582144331-e74a3ev66hp4t9v81mvmj0t7gk1kgjm4.apps.googleusercontent.com">
           <App />
-        </Provider>
-      </GoogleOAuthProvider>
+        </GoogleOAuthProvider>
+      </Provider>
     </React.StrictMode>
   </BrowserRouter>
 );

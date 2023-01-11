@@ -49,6 +49,13 @@ export default function Header() {
               <ion-icon name="add-outline"></ion-icon> Post estate
             </button>
           </Link>
+
+          <button
+            className="bg-akkar-orange-second text-red-700 font-Inter text-xl items-center ml-3 py-2 px-1 flex rounded-[3px] hover:bg-akkar-orange-second hover:text-black
+    duration-200"
+          >
+            <ion-icon size="large" name="log-out-outline"></ion-icon> LOGOUT
+          </button>
         </ul>
       </div>
     </div>

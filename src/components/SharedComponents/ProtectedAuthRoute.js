@@ -1,9 +1,7 @@
-import React, { Children, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Navigate, Route } from "react-router-dom";
+
+import LoginNotFoundPage from "./LoginNotFoundPage";
 
 export default function ProtectedAuthRoute({ children }) {
-
   //get isAuth from redux.
   // const isAuth = useSelector((state)=>state.user.value.isAuth);
   // console.log(isAuth);
@@ -12,8 +10,8 @@ export default function ProtectedAuthRoute({ children }) {
     return children;
   } else {
     // <Alert severity="error">You are not logged in, Please login to continue!</Alert>
-    alert("You are not logged in, please Login to continue!");
-    console.log("nooooooooooo!");
-    return <Navigate to="/" replace />;
+    // alert("You are not logged in, please Login to continue!");
+    return <LoginNotFoundPage />;
+    // return <Navigate to="/" replace />;
   }
 }
