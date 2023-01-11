@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Logo from "../../assets/logo.svg";
+import { LogoutFunction } from "../SharedComponents/LogoutFunction";
 export default function Header() {
   let Links = [
     { name: "Home", link: "#hero2" },
@@ -49,13 +50,15 @@ export default function Header() {
               <ion-icon name="add-outline"></ion-icon> Post estate
             </button>
           </Link>
-
-          <button
-            className="bg-akkar-orange-second text-red-700 font-Inter text-xl items-center ml-3 py-2 px-1 flex rounded-[3px] hover:bg-akkar-orange-second hover:text-black
+          <Link to="/">
+            <button
+              onClick={() => LogoutFunction()}
+              className="bg-akkar-orange-second text-red-700 font-Inter text-xl items-center ml-3 py-2 px-1 flex rounded-[3px] hover:bg-akkar-orange-second hover:text-black
     duration-200"
-          >
-            <ion-icon size="large" name="log-out-outline"></ion-icon> LOGOUT
-          </button>
+            >
+              <ion-icon size="large" name="log-out-outline"></ion-icon> LOGOUT
+            </button>
+          </Link>
         </ul>
       </div>
     </div>
