@@ -12,27 +12,7 @@ import { useDispatch } from "react-redux";
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  useEffect(() => {
-    let user = JSON.parse(localStorage.getItem("user"));
-    if (user == null) {
-      user = { id: 0, email: "", isadmin: false, username: "" };
-    } else {
-      if (user.isadmin) {
-        navigate("/admin");
-      } else {
-        navigate("/authenticated");
-      }
-    }
-    console.log(user);
-    dispatch(
-      login({
-        name: user.username,
-        id: user.id,
-        email: user.email,
-        isAdmin: user.isadmin,
-      })
-    );
-  }, []);
+ 
 
   return (
     <div>
