@@ -1,5 +1,5 @@
 
-import LoginNotFoundPage from "./LoginNotFoundPage";
+import LoginNotFoundPage from "../LoginNotFoundPage";
 
 export default function ProtectedAuthRoute({ children }) {
   //get isAuth from redux.

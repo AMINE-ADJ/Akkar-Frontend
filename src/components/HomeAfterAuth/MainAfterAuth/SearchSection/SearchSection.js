@@ -1,9 +1,9 @@
 import React from "react";
-import search from "../../assets/search.svg"
-import check from "../../assets/check.svg";
+import search from "../../../../assets/search.svg"
+import check from "../../../../assets/check.svg";
 export default function SearchSection() {
   return (
-    <section className="w-full h-fit mt-[90px] bg-akkar-black" id="hero2">
+    <section className="w-full h-fit pt-[90px] bg-akkar-black" id="hero2">
  <div className="w-full h-[250px] md:h-[400px] bg-wood-bg bg-cover ">
             <div className="w-full h-[250px] md:h-[400px]  bg-filter flex flex-col justify-around items-center">
                 <h1 className="text-center text-white text-3xl md:text-5xl md:mt-[50px]">Start searching a real estate</h1>

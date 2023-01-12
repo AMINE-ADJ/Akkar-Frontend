@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { LogoutFunction } from "../components/SharedComponents/LogoutFunction";
 
 export default function Admin() {
   // const user = useSelector((state) => state.user.value);
@@ -28,6 +30,15 @@ export default function Admin() {
       >
         Lancer WebScraping
       </button>
+      <Link to="/">
+            <button
+              onClick={() => LogoutFunction()}
+              className="bg-akkar-orange text-red-700 font-Inter text-xl items-center ml-3 py-2 px-1 flex rounded-[3px] hover:bg-akkar-orange-second hover:text-black
+    duration-200"
+            >
+              <ion-icon size="large" name="log-out-outline"></ion-icon> LOGOUT
+            </button>
+          </Link>
     </div>
   );
 }

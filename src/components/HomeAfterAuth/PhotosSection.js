@@ -14,7 +14,7 @@ export default function PhotosSection(props) {
         className="  w-[600px] md:w-[1100px] h-[500px] cursor-grab"
         slidesPerView={isMobile ? 2 : 4}
       >
-        {props.data.map((img, index) => (
+        { props.data && props.data.map((img, index) => (
           <SwiperSlide
             key={index}
             className="flex flex-row justify-evenly items-center  w-[250px] h-[400px]"

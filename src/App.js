@@ -2,14 +2,15 @@ import React, { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import HomeBeforeAuth from "./pages/HomeBeforeAuth";
 import HomeAfterAuth from "./pages/HomeAfterAuth";
-import Details from "./pages/Details.js";
+import Details from "./components/HomeAfterAuth/MesAnnonces/Details";
 import Admin from "./pages/Admin";
-import ProtectedAuthRoute from "./components/SharedComponents/ProtectedAuthRoute";
-import UserProtectedRoute from "./components/SharedComponents/UserProtectedRoute";
-import AdminProtectedRoute from "./components/SharedComponents/AdminProtectedRoute";
+import ProtectedAuthRoute from "./components/SharedComponents/ProtectionRoutes/ProtectedAuthRoute";
+import UserProtectedRoute from "./components/SharedComponents/ProtectionRoutes/UserProtectedRoute";
+import AdminProtectedRoute from "./components/SharedComponents/ProtectionRoutes/AdminProtectedRoute";
 import { login } from "./feautures/user";
 import { useDispatch } from "react-redux";
-import MesAnnonces from "./components/HomeAfterAuth/MesAnnonces";
+import MesAnnonces from "./components/HomeAfterAuth/MesAnnonces/MesAnnonces";
+import MainAfterAuth from "./components/HomeAfterAuth/MainAfterAuth/MainAfterAuth";
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -48,9 +49,20 @@ function App() {
               </UserProtectedRoute>
             </ProtectedAuthRoute>
           }
-        />
-        <Route path="/authenticated/mesannonces" element={<MesAnnonces />} />
-        <Route path="/authenticated/detailes/:id" element={<Details />} />
+        >
+          <Route path="" element={<MainAfterAuth />} />
+          <Route path="mesannonces" element={<MesAnnonces />} />
+          <Route path="detailes/:id" element={<Details />} />
+        </Route>
+        {/* <Route element={<ProtectedAuthRoute />}>
+          <Route element={<UserProtectedRoute />}>
+            <Route path="/authenticated" element={<HomeAfterAuth />}>
+              <Route path="mesannonces" element={<MesAnnonces />} />
+            </Route>
+          </Route>
+        </Route> */}
+        {/* <Route path="/authenticated/mesannonces" element={<MesAnnonces />} /> */}
+
         <Route
           path="/admin"
           element={
