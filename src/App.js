@@ -4,6 +4,7 @@ import HomeBeforeAuth from "./pages/HomeBeforeAuth";
 import HomeAfterAuth from "./pages/HomeAfterAuth";
 import Details from "./components/HomeAfterAuth/MesAnnonces/Details";
 import Admin from "./pages/Admin";
+import PostForm from "./components/HomeAfterAuth/PostForm";
 import ProtectedAuthRoute from "./components/SharedComponents/ProtectionRoutes/ProtectedAuthRoute";
 import UserProtectedRoute from "./components/SharedComponents/ProtectionRoutes/UserProtectedRoute";
 import AdminProtectedRoute from "./components/SharedComponents/ProtectionRoutes/AdminProtectedRoute";
@@ -53,6 +54,7 @@ function App() {
           <Route path="" element={<MainAfterAuth />} />
           <Route path="mesannonces" element={<MesAnnonces />} />
           <Route path="detailes/:id" element={<Details />} />
+          <Route path="posterannonce" element={<PostForm />} />
         </Route>
         {/* <Route element={<ProtectedAuthRoute />}>
           <Route element={<UserProtectedRoute />}>

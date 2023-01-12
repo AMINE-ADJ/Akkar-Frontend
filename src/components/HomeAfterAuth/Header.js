@@ -43,7 +43,8 @@ export default function Header() {
               </HashLink>
             </li>
           ))}
-          <Link to="">
+          <Link to="/authenticated/posterannonce">
+          {/* <Link to={`/authenticated/posterannonce/${user.id}`}> */}
             <button
               className="bg-akkar-orange-second text-akkar-orange font-Inter py-2 px-9 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
     duration-200"
