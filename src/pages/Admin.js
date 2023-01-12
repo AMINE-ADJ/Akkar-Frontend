@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import ProgressTimer from "react-progress-bar-timer";
 import { Link } from "react-router-dom";
 import { LogoutFunction } from "../components/SharedComponents/LogoutFunction";
 
@@ -8,16 +9,20 @@ export default function Admin() {
   // console.log("from Admin : ");
   // console.log(user);
   const [ScrapingTime, setScrapingTime] = useState(2);
-  const [Success, setSuccess] = useState("");
+  const [StartTimer, setStartTimer] = useState(false);
+  const [ScrapingTimeMs, setScrapingTimeMs] = useState(ScrapingTime * 60 + 15);
+  const [Success, setSuccess] = useState(false);
   const lancerWebScraping = () => {
+    setSuccess(false);
     console.log(`tlancat....! avec ${ScrapingTime} `);
+    setStartTimer(true);
     axios
       .post("http://127.0.0.1:8000/api/lancerwebscraping/", {
-        scrapingtime: `2`,
+        scrapingtime: `${ScrapingTime} `,
       })
       .then((res) => {
         console.log(res);
-        setSuccess(res.data);
+        setStartTimer(false);
       })
       .catch((error) => {
         console.error("There was an error!", error);
@@ -26,17 +31,19 @@ export default function Admin() {
   const IncreaseScrapingTime = (nbr) => {
     if (ScrapingTime + nbr <= 18) {
       setScrapingTime(ScrapingTime + nbr);
+      setScrapingTimeMs(ScrapingTimeMs + nbr * 60);
     }
   };
   const DecreaseScrapingTime = (nbr) => {
     if (ScrapingTime - nbr >= 2) {
       setScrapingTime(ScrapingTime - nbr);
+      setScrapingTimeMs(ScrapingTimeMs - nbr * 60);
     }
   };
   // console.log(Success);
   return (
-    <div className="bg-akkar-orange-second flex flex-col items-center gap-10 justify-center h-screen w-full font-akkar-bold text-akkar-black">
-      <h1 className="text-3xl">this is admin!</h1>
+    <div className="bg-akkar-orange-second pt-10 flex flex-col items-center gap-10 justify-start h-screen w-full font-akkar-bold text-akkar-black">
+      <h1 className="text-5xl">Welcome to Admin Page!</h1>
 
       <div className=" flex gap-10 items-center">
         <button
@@ -45,7 +52,9 @@ export default function Admin() {
         >
           Decrease
         </button>
-        <p className="text-7xl">{ScrapingTime}</p>
+
+        <p className="text-5xl">{ScrapingTime}</p>
+
         <button
           onClick={() => IncreaseScrapingTime(2)}
           className="p-5 bg-slate-600"
@@ -53,7 +62,16 @@ export default function Admin() {
           Increase
         </button>
       </div>
-
+      <ProgressTimer
+        label="Veuillez attendre 24h avant de lancer la prochaine operation !"
+        started={StartTimer}
+        color="#E95913"
+        duration={ScrapingTimeMs}
+        fontColor={Success ? "#ffffffd9" : "#00000000"}
+        onFinish={() => {
+          setSuccess(true);
+        }}
+      />
       <button
         onClick={() => lancerWebScraping()}
         className="text-3xl bg-akkar-orange-third hover:bg-akkar-gray text-akkar-black font-Inter py-14 px-9 rounded-[3px] "
