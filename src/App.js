@@ -9,10 +9,31 @@ import UserProtectedRoute from "./components/SharedComponents/UserProtectedRoute
 import AdminProtectedRoute from "./components/SharedComponents/AdminProtectedRoute";
 import { login } from "./feautures/user";
 import { useDispatch } from "react-redux";
+import MesAnnonces from "./components/HomeAfterAuth/MesAnnonces";
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
- 
+  useEffect(() => {
+    let user = JSON.parse(localStorage.getItem("user"));
+    if (user == null) {
+      user = { id: 0, email: "", isadmin: false, username: "" };
+    } else {
+      if (user.isadmin) {
+        navigate("/admin");
+      } else {
+        navigate("/authenticated");
+      }
+    }
+    console.log(user);
+    dispatch(
+      login({
+        name: user.username,
+        id: user.id,
+        email: user.email,
+        isAdmin: user.isadmin,
+      })
+    );
+  }, []);
 
   return (
     <div>
@@ -28,6 +49,8 @@ function App() {
             </ProtectedAuthRoute>
           }
         />
+        <Route path="/authenticated/mesannonces" element={<MesAnnonces />} />
+        <Route path="/authenticated/detailes/:id" element={<Details />} />
         <Route
           path="/admin"
           element={

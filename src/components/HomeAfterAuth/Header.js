@@ -5,9 +5,10 @@ import Logo from "../../assets/logo.svg";
 import { LogoutFunction } from "../SharedComponents/LogoutFunction";
 export default function Header() {
   let Links = [
-    { name: "Home", link: "#hero2" },
+    { name: "Home", link: "/authenticated/#hero2" },
     // { name: "Our Services", link: "#services" },
     { name: "Messages", link: "" },
+    { name: "Mes Annonces", link: "/authenticated/mesannonces" },
     { name: "Contact Us", link: "#footer" },
   ];
   let [open, setOpen] = useState(false);
@@ -15,7 +16,7 @@ export default function Header() {
   return (
     <div className="shadow-lg shadow-akkar-orange w-full fixed top-0 left-0 z-100">
       <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7">
-        <HashLink smooth to={"#hero2"}>
+        <HashLink smooth to={"/authenticated/#hero2"}>
           <img className="w-[150px] h-16 pb-2 " src={Logo} />
         </HashLink>
 

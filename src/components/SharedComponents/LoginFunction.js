@@ -19,9 +19,9 @@ export const LoginFunction = () => {
         );
         //pass to backend useremail bach yrj3lk : id nd isAdmin
         //get user id and isAdmin from backend and pass it to ur object bach tkhdem bihom apres
-        console.log(res.data.email);
-        console.log(res.data.name);
-        console.log(res.data);
+        // console.log(res.data.email);
+        // console.log(res.data.name);
+        // console.log(res.data);
         axios
           .post("http://127.0.0.1:8000/api/utilisateurs/", {
             email: res.data.email,
@@ -29,7 +29,7 @@ export const LoginFunction = () => {
           })
           .then((response) => {
             const user = response.data;
-            // user.isadmin=true; to test admin.
+            // user.isadmin=true;
             console.log(user);
             localStorage.setItem("user", JSON.stringify(user));
             dispatch(
