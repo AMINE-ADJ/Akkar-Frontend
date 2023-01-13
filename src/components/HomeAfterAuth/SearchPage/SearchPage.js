@@ -29,7 +29,7 @@ export default function SearchPage() {
   //   console.log("he doesn't have annonces yet! that's why = []");
   // console.log(inpuText);
   useEffect(() => {
-    console.log(typeof inpuText);
+    console.log("In use effect");
     axios
       .post(`http://127.0.0.1:8000/api/filterannonce/${page}`, {
         param: inpuText,
@@ -67,6 +67,7 @@ export default function SearchPage() {
 
   //define the rules of each field
   const registerSchema = yup.object().shape({
+    SearchText: yup.string().required("Type is required"),
     type: yup.string().required("Type is required"),
     wilaya: yup.string().required("Wilaya is required"),
     commune: yup.string().required("commune is required"),
@@ -97,6 +98,29 @@ export default function SearchPage() {
   const formSubmitHandler = (data) => {
     //data is the set of data retrived from the form it won t be sent unless the form is valid (0 error messages)
     console.log(data);
+    console.log("in submit Function");
+
+    setPage(1);
+    setinputText(data.SearchText);
+    axios
+      .post(`http://127.0.0.1:8000/api/filterannonce/${page}`, {
+        param: inpuText,
+        type: data.type,
+        wilaya: data.wilaya,
+        commune: data.commune,
+        newestdate: data.fromDate,
+        oldestdate: data.toDate,
+      })
+      .then((res) => {
+        console.log(res);
+        setMesAnnonces(res.data);
+        console.log(res.data.length);
+        settotalLength(res.data.length);
+        // settotalLength(res.data[0].my_annonces);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div className="bg-white  w-full pt-32 flex flex-col items-center pb-10">
@@ -104,9 +128,11 @@ export default function SearchPage() {
         <div className="flex flex-col items-start gap-5">
           <div className=" w-[400px] md:w-[915px] h-[50px] flex flex-row gap-12 items-center p-5 border-2 border-[#ECDFD8] rounded-2">
             <input
+              {...register("SearchText")}
               className=" w-[370px] md:w-[790px] h-[45px] rounded-2 p-4  outline-none"
               type="text"
-              name="localisation"
+              name="SearchText"
+              defaultValue={inpuText}
               placeholder="Search for a real estate"
             ></input>
             <div className="w-[23px] h-[23px] md:w-[25px]  md:h-[25px]   flex items-center justify-center">
