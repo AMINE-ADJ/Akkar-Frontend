@@ -14,6 +14,7 @@ const isWebScraping  = props.isWebScraping;
 
     <div className="w-full min-w-fit h-[450px] flex justify-center items-center">
              <Contact number={data.telephone} nom={data.nom} prenom={data.prenom} mail={data.email} adress={data.adresseannonceur} isWebScraping = {isWebScraping}></Contact>
+             
     </div>
     
   );

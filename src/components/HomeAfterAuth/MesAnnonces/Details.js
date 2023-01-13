@@ -8,8 +8,13 @@ import ContactSection from "../ContactSection";
 import picture from "../../../assets/picture.svg";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import DeleteConfirModal from "./DeleteConfirmModel";
 
 export default function Details() {
+  const user = useSelector((state) => state.user.value);
+
   const [Annonce, setAnnonce] = useState(null);
   const PostId = useParams();
   console.log(PostId);
@@ -25,6 +30,17 @@ export default function Details() {
       });
   }, []);
   console.log(Annonce);
+
+  // const DeleteAnnonce = () => {
+  //   axios
+  //     .delete(`http://127.0.0.1:8000/api/supprimerannonce/${PostId.id}`)
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
   // let data = [
   //   picture,
   //   picture,
@@ -42,7 +58,21 @@ export default function Details() {
           <PhotosSection data={Annonce.my_image} />
           <Description description={Annonce.description} />
           <InfosSection InfoAnnonce={Annonce} />
-          <ContactSection InfoContact={Annonce.my_contact} isWebScraping = {Annonce.annonceuremail =="annonce-algerie" ? true : false}/>
+          <ContactSection
+            InfoContact={Annonce.my_contact}
+            isWebScraping={
+              Annonce.annonceuremail == "annonce-algerie" ? true : false
+            }
+          />
+          <>
+            {user.email == Annonce.annonceuremail ? (
+              <div className="flex items-center justify-center pb-10">
+                <DeleteConfirModal id={PostId.id} />
+              </div>
+            ) : (
+              <></>
+            )}
+          </>
         </>
       )}
     </div>
