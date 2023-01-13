@@ -48,8 +48,10 @@ export default function SearchPage() {
         console.log(err);
       });
   }, [page]);
+
   // console.log(totalLength / 40);
   // console.log(MesAnnonces);
+
   // console.log(MesAnnonces);
   const handlePageClick = (data) => {
     // console.log(data.selected);
@@ -69,10 +71,12 @@ export default function SearchPage() {
   const registerSchema = yup.object().shape({
     SearchText: yup.string().required("Type is required"),
     type: yup.string().required("Type is required"),
+
     wilaya: yup.string().required("Wilaya is required"),
     commune: yup.string().required("commune is required"),
     fromDate: yup.string().required("commune is required"),
     toDate: yup.string().required("commune is required"),
+
     //we will add more rules when adding the photos section and the contact infos section
   });
   //useForm liberary setup this will manage all the form fields and validate the form using the yup schema
@@ -95,6 +99,7 @@ export default function SearchPage() {
     { label: "F4", value: "F5" },
     { label: "Duplex", value: "Duplex" },
   ];
+  
   const formSubmitHandler = (data) => {
     //data is the set of data retrived from the form it won t be sent unless the form is valid (0 error messages)
     console.log(data);
