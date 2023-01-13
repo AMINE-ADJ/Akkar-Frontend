@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Logo from "../../assets/logo.svg";
+import { LoginFunction } from "../SharedComponents/LoginFunction";
 export default function Header() {
   let Links = [
     { name: "Home", link: "#hero" },
@@ -10,7 +10,7 @@ export default function Header() {
     { name: "Contact Us", link: "#footer" },
   ];
   let [open, setOpen] = useState(false);
-
+  const loginFunction = LoginFunction();
   return (
     <div className="shadow-lg shadow-akkar-orange w-full fixed top-0 left-0 z-100">
       <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7">
@@ -41,14 +41,15 @@ export default function Header() {
               </HashLink>
             </li>
           ))}
-          <Link to="/authenticated">
-            <button
-              className="bg-akkar-orange text-white font-Inter py-2 px-9 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
+          {/* <Link to="/authenticated"> */}
+          <button
+            onClick={() => loginFunction()}
+            className="bg-akkar-orange text-white font-Inter py-2 px-9 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
     duration-200"
-            >
-              Connectez-vous
-            </button>
-          </Link>
+          >
+            Connectez-vous
+          </button>
+          {/* </Link> */}
         </ul>
       </div>
     </div>

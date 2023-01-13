@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import HeroPic from "../../../assets/homepage-picture.svg";
+import { LoginFunction } from "../../SharedComponents/LoginFunction";
+
 export default function Hero() {
+  const loginFunction = LoginFunction();
   return (
     <section
       className="bg-akkar-white-creme w-full min-w-fit h-fit pb-32 md:mb-0  "
@@ -16,21 +18,19 @@ export default function Hero() {
             Buying real estate is not only the best way, the quickest way, the
             safest way, but the only way to become wealthy
           </div>
-          <Link to="/">
-            <button
-              className=" flex items-center gap-3 font-medium bg-akkar-orange text-white text-lg md:text-2xl font-Inter py-2 md:py-6 px-12 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
+          <button
+            onClick={() => loginFunction()}
+            className=" flex items-center gap-3 font-medium bg-akkar-orange text-white text-lg md:text-2xl font-Inter py-2 md:py-6 px-12 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
     duration-200"
-            >
-              <ion-icon size="large" name="logo-google"></ion-icon> Login with
-              Google
-            </button>
-          </Link>
+          >
+            <ion-icon size="large" name="logo-google"></ion-icon> Login with
+            Google
+          </button>
         </div>
         <div className="  md:w-[720px]">
           <img className=" md:h-[700px]  " src={HeroPic} />
         </div>
       </div>
-      
     </section>
   );
 }
