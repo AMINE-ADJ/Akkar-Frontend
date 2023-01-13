@@ -22,6 +22,7 @@ export default function PostForm() {
     );
     setWilayaId(wilayaObject.id);
   };
+  
   //define the rules of each field
   const registerSchema = yup.object().shape({
     type:yup.string().required("Type is required"),
@@ -47,6 +48,7 @@ export default function PostForm() {
     resolver: yupResolver(registerSchema),
   });
 
+
   const Types = [
     { label: "Terrain", value: "Terrain" },
     { label: "Agricole", value: "Agricole" },
@@ -67,6 +69,7 @@ export default function PostForm() {
 
   const formSubmitHandler = (data) => {
     //data is the set of data retrived from the form it won t be sent unless the form is valid (0 error messages)
+
     //axios here
     console.log("Submited !");
     console.log("your data ",data);
@@ -133,6 +136,7 @@ export default function PostForm() {
             </div>
             <div className="flex flex-col">
               <select
+
                 {...register("categorie")}
                 name="categorie"
                 className="w-[400px] h-[50px] rounded-2 p-3 border-2 border-[#ECDFD8] outline-none"
@@ -149,6 +153,7 @@ export default function PostForm() {
                   );
                 })}
               </select>
+
               {errors.categorie ?  <div className="text-sm text-akkar-orange text-left absolute mt-[50px]"> {errors.categorie.message}</div> : null }
 
             </div>
@@ -157,6 +162,7 @@ export default function PostForm() {
             <div className="flex flex-col">
               <div className="w-[400px] h-[50px] flex flex-row items-center  border-2 border-[#ECDFD8] rounded-2">
                 <input
+
                   {...register("surface")}
                   className="w-[330px] h-[45px] rounded-2 p-5  outline-none"
                   type="number"
@@ -169,6 +175,7 @@ export default function PostForm() {
                 </div>
               </div>
               {errors.surface ?  <div className="text-sm text-akkar-orange text-left absolute mt-[50px]"> {errors.surface.message}</div> : null }
+
 
             </div>
             <div className="flex flex-col">
@@ -273,6 +280,7 @@ export default function PostForm() {
                 ></img>
               </div>
 
+
               <input
                 className=" w-[370px] md:w-[790px] h-[45px] rounded-2 p-4  outline-none"
                 type="text"
@@ -366,6 +374,7 @@ export default function PostForm() {
         </div>
 
 <button type="submit" className="  w-[200px] h-[50px] md:w-[300px] md:h-[60px] bg-akkar-orange text-white   text-xl">Post Real Estate</button> {/** just to test the onSubmit methode */}
+
         {/** just to test the onSubmit methode */}
       </div>
     </form>
