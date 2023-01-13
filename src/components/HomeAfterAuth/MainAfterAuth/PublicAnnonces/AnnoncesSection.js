@@ -19,6 +19,7 @@ export default function AnnoncesSection() {
         console.error("There was an error!", error);
       });
   }, [page]);
+  // console.log(totalLength / 40);
   // console.log(Annonces);
   // console.log(totalLength);
   // console.log(page);
@@ -51,6 +52,7 @@ export default function AnnoncesSection() {
           previousClassName="m-2 px-3 py-2 text-xl rounded-[4px]  leading-tight text-akkar-orange bg-akkar-orange-second border hover:bg-akkar-orange hover:text-akkar-white-creme "
           nextClassName="m-2 px-3  py-2 text-xl rounded-[4px]  leading-tight text-akkar-orange bg-akkar-orange-second border hover:bg-akkar-orange hover:text-akkar-white-creme "
           activeClassName=" m-2 px-5 py-3 text-xl rounded-[4px] leading-tight text-akkar-white-creme bg-akkar-orange "
+          breakClassName="m-2 px-5 py-3 rounded-[4px] text-xl leading-tight text-akkar-orange bg-akkar-orange-second border  hover:bg-akkar-orange hover:text-akkar-white-creme"
         />
       </div>
     </section>

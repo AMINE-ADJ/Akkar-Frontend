@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Wilayas from "../../data/wilayas.json";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
 
 export default function PostForm() {
   const [Wilaya, setWilaya] = useState("");
