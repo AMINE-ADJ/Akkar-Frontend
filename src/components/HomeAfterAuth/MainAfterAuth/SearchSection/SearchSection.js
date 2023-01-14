@@ -7,7 +7,7 @@ export default function SearchSection() {
   // console.log(inpuText);
   return (
     <section className="w-full h-fit pt-[90px] bg-akkar-black" id="hero2">
-      <div className="w-full h-[250px] md:h-[400px] bg-wood-bg bg-cover ">
+      <form className="w-full h-[250px] md:h-[400px] bg-wood-bg bg-cover ">
         <div className="w-full h-[250px] md:h-[400px]  bg-filter flex flex-col justify-around items-center">
           <h1 className="text-center text-white text-3xl md:text-5xl md:mt-[50px]">
             Start searching a real estate
@@ -23,9 +23,13 @@ export default function SearchSection() {
               className="w-[400px] md:w-[780px]  h-[60px] md:h-[80px] bg-white text-2xl outline-none text-[#BE9E8C]"
               placeholder="Search a real estate"
               onChange={(txt) => setinputText(txt.target.value)}
+              onKeyDown={(e)=>{
+                if(e.keyCode==13){ document.getElementById("clickable").click()}
+              }
+              }
             ></input>
-            <Link to={`/authenticated/search/${inpuText}`}>
-              <button>
+            <Link  to={`/authenticated/search/${inpuText}`}>
+              <button id="clickable"  >
                 <div className=" w-[50px] md:w-[100px]  h-[60px] md:h-[80px] bg-akkar-orange flex justify-center items-center rounded-r-[6px] text-center text-xl md:text-2xl text-white">
                   GO
                 </div>
@@ -70,7 +74,7 @@ export default function SearchSection() {
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </section>
   );
 }

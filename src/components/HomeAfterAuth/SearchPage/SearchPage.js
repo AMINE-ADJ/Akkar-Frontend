@@ -69,16 +69,24 @@ export default function SearchPage() {
 
   //define the rules of each field
   const registerSchema = yup.object().shape({
-    SearchText: yup.string().required("Type is required"),
-    type: yup.string().required("Type is required"),
+    SearchText: yup.string(),
+    type: yup.string(),
 
-    wilaya: yup.string().required("Wilaya is required"),
-    commune: yup.string().required("commune is required"),
-    fromDate: yup.string().required("commune is required"),
-    toDate: yup.string().required("commune is required"),
+    wilaya: yup.string(),
+    commune: yup.string(),
+     fromDate: yup.string(),
+     toDate: yup.string().ensure().when('fromDate', {
+        is: (fromDate) =>  fromDate.length > 0,
+        then: yup.string()
+          .required('Field is required'),
+
+     }),
 
     //we will add more rules when adding the photos section and the contact infos section
-  });
+  }
+  
+  );
+      
   //useForm liberary setup this will manage all the form fields and validate the form using the yup schema
   const {
     register,
@@ -102,9 +110,9 @@ export default function SearchPage() {
   
   const formSubmitHandler = (data) => {
     //data is the set of data retrived from the form it won t be sent unless the form is valid (0 error messages)
-    console.log(data);
-    console.log("in submit Function");
-
+    console.log("Filter submitted!");
+    console.log("infos",data);
+    console.log("date: from ",fromdate,"to ",todate);
     setPage(1);
     setinputText(data.SearchText);
     axios
@@ -127,10 +135,17 @@ export default function SearchPage() {
         console.log(err);
       });
   };
+  const [isDisabled, setIsDisabled] = useState(true);
+     console.log(isDisabled);
+     const [fromdate,setfromdate]=useState();
+     const [todate,settodate]=useState();
+
   return (
+    
     <div className="bg-white  w-full pt-32 flex flex-col items-center pb-10">
-      <form onSubmit={handleSubmit(formSubmitHandler)} className=" ">
-        <div className="flex flex-col items-start gap-5">
+
+      <form onSubmit={handleSubmit(formSubmitHandler)}>
+        <div className="flex flex-col justify-center items-center md:items-start gap-5">
           <div className=" w-[400px] md:w-[915px] h-[50px] flex flex-row gap-12 items-center p-5 border-2 border-[#ECDFD8] rounded-2">
             <input
               {...register("SearchText")}
@@ -140,9 +155,9 @@ export default function SearchPage() {
               defaultValue={inpuText}
               placeholder="Search for a real estate"
             ></input>
-            <div className="w-[23px] h-[23px] md:w-[25px]  md:h-[25px]   flex items-center justify-center">
+            <div className=" w-[22px] h-[22px] md:w-[25px]  md:h-[25px]   flex items-center justify-center">
               <img
-                className="w-[100%] h-[100%] object-cover"
+                className="md:w-[100%] md:h-[100%] "
                 src={search}
               ></img>
             </div>
@@ -154,7 +169,7 @@ export default function SearchPage() {
             </p>
           </div>
 
-          <div className="flex gap-2 ">
+          <div className="w-full flex flex-col md:flex-row items-center justify-center gap-y-[25px] md:gap-x-[20px] ">
             <div className="flex flex-col">
               <select
                 {...register("type")}
@@ -239,27 +254,59 @@ export default function SearchPage() {
             </div>
           </div>
           {/* from to  */}
-          <div className="flex flex-row items-center gap-4">
+          <div className="flex flex-col md:flex-row items-center gap-y-[40px] md:gap-4">
             <p className="text-xl font-Inter font-akkar-bold">From</p>
-            <div className="w-[150px] md:w-[300px] h-[40px] flex flex-row items-center p-5 border-2 border-[#ECDFD8] rounded-2">
+              <div className="flex flex-col">
               <input
-                {...register("fromDate")}
-                className=" w-[150px] md:w-[300px] h-[40px] rounded-2 p-4  outline-none"
-                type="text"
+              id="from"
+              {...register("fromDate")}
+
+               onChange={(e)=>{
+                if(e.target.value)
+                setIsDisabled(false)
+                else setIsDisabled(true);
+                setfromdate(e.target.value);
+              
+              }}
+               
+                className=" w-[200px] md:w-[300px] h-[50px] rounded-2 p-4 border-2 border-[#ECDFD8] outline-none"
+                type="date"
                 name="fromDate"
                 placeholder="yyyy/mm/dd"
               ></input>
-            </div>
+              {errors.fromDate ? (
+                <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+                  
+                  {errors.fromDate.message}
+                </div>
+              ) : null}
+              </div>
+           
             <p className="text-xl font-Inter font-akkar-bold">To</p>
-            <div className="w-[150px] md:w-[300px] h-[40px] flex flex-row items-center p-5 border-2 border-[#ECDFD8] rounded-2">
-              <input
-                {...register("toDate")}
-                className=" w-[150px] md:w-[300px] h-[40px] rounded-2 p-4  outline-none"
-                type="text"
+             <div className="flex flex-col">
+             <input
+              id="to"
+              {...register("toDate")}
+                onChange={(e)=>{
+                  
+                  settodate(e.target.value);
+                
+                }}
+                className=" w-[200px] md:w-[300px] h-[50px] rounded-2 p-4 border-2 border-[#ECDFD8]   outline-none"
+                type="date"
                 name="toDate"
                 placeholder="yyyy/mm/dd"
+                disabled={isDisabled}
               ></input>
-            </div>
+              {errors.toDate ? (
+                <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+                  
+                  {errors.toDate.message}
+                </div>
+              ) : null}
+             </div>
+              
+
             <button
               type="submit"
               className="bg-akkar-orange-second font-akkar-bold px-14 text-akkar-orange font-Inter text-xl items-center ml-3 py-2  flex rounded-[3px] hover:bg-akkar-orange hover:text-akkar-white-creme
