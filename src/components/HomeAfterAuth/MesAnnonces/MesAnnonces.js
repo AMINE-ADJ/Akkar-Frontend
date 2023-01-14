@@ -17,12 +17,15 @@ export default function MesAnnonces() {
   useEffect(() => {
     axios
       .post(`http://127.0.0.1:8000/api/mesannonces/${page}`, {
-        id: user.id,
+        id: 43,
       })
       .then((res) => {
-        console.log(res);
-        setMesAnnonces(res.data);
-        settotalLength(res.data[0].my_annonces);
+        // console.log(res);
+        // setMesAnnonces(res.data);
+        // settotalLength(res.data[0].my_annonces);
+        setMesAnnonces(res.data[1]);
+        settotalLength(res.data[0].count);
+        // console.log(totalLength);
       })
       .catch((err) => {
         console.log(err);

@@ -11,7 +11,7 @@ export default function Post(props) {
                 <div className="w-[420px] h-[270px] rounded-[7px] ">
                     <img src={props.img} className="w-[100%] h-[100%] object-cover rounded-t-[7px] mt-[-2px]"></img>
                 </div>
-
+                
                      <p className="text-left text-black font-medium text-[25px] m-[20px] ">{props.title}</p>
                     <div className="flex flex-row justify-between p-5 items-center w-[420px] h-[50px] mt-[-10px]">
                               <div className="flex flex-row justify-center items-center gap-[10px] ">

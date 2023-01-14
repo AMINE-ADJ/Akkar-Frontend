@@ -80,7 +80,7 @@ export default function Admin() {
       </button>
       <Link to="/">
         <button
-          // onClick={() =>  ()}
+          onClick={() => LogoutFunction()}
           className="bg-akkar-orange text-red-700 font-Inter text-xl items-center ml-3 py-2 px-1 flex rounded-[3px] hover:bg-akkar-orange-second hover:text-black
     duration-200"
         >

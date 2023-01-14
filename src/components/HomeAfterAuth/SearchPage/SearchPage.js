@@ -41,8 +41,10 @@ export default function SearchPage() {
       })
       .then((res) => {
         console.log(res);
-        setMesAnnonces(res.data);
-        settotalLength(res.data[0].my_annonces);
+        // setMesAnnonces(res.data);
+        // settotalLength(res.data[0].my_annonces);
+        setMesAnnonces(res.data[1]);
+        settotalLength(res.data[0].count);
       })
       .catch((err) => {
         console.log(err);
@@ -70,12 +72,12 @@ export default function SearchPage() {
   //define the rules of each field
   const registerSchema = yup.object().shape({
     SearchText: yup.string().required("Type is required"),
-    type: yup.string().required("Type is required"),
+    // type: yup.string().required("Type is required"),
 
-    wilaya: yup.string().required("Wilaya is required"),
-    commune: yup.string().required("commune is required"),
-    fromDate: yup.string().required("commune is required"),
-    toDate: yup.string().required("commune is required"),
+    // wilaya: yup.string().required("Wilaya is required"),
+    // commune: yup.string().required("commune is required"),
+    // fromDate: yup.string().required("commune is required"),
+    // toDate: yup.string().required("commune is required"),
 
     //we will add more rules when adding the photos section and the contact infos section
   });
@@ -89,17 +91,17 @@ export default function SearchPage() {
   });
 
   const Types = [
-    { label: "Terrain", value: "Terrain" },
+    { label: "Surface", value: "Surface" },
     { label: "Agricole", value: "Agricole" },
-    { label: "Appartement", value: "Appartement" },
+    { label: "Appartement", value: "Appart" },
     { label: "Maison", value: "Maison" },
     { label: "Bungalow", value: "Bungalow" },
-    { label: "F2", value: "F2" },
-    { label: "F3", value: "F3" },
-    { label: "F4", value: "F5" },
+    { label: "Appart. 1 pièce", value: "Appart. 1 pièce" },
+    { label: "Appart. 3 pièces", value: "Appart. 3 pièce" },
+    { label: "Appart. 4 pièces", value: "Appart. 4 pièce" },
     { label: "Duplex", value: "Duplex" },
   ];
-  
+
   const formSubmitHandler = (data) => {
     //data is the set of data retrived from the form it won t be sent unless the form is valid (0 error messages)
     console.log(data);
@@ -113,14 +115,16 @@ export default function SearchPage() {
         type: data.type,
         wilaya: data.wilaya,
         commune: data.commune,
-        newestdate: data.fromDate,
-        oldestdate: data.toDate,
+        newestdate: data.toDate,
+        oldestdate: data.fromDate,
       })
       .then((res) => {
         console.log(res);
-        setMesAnnonces(res.data);
-        console.log(res.data.length);
-        settotalLength(res.data.length);
+        // setMesAnnonces(res.data);
+        // console.log(res.data.length);
+        // settotalLength(res.data.length);
+        setMesAnnonces(res.data[1]);
+        settotalLength(res.data[0].count);
         // settotalLength(res.data[0].my_annonces);
       })
       .catch((err) => {
