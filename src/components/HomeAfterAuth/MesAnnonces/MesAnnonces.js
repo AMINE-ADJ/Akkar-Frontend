@@ -54,7 +54,7 @@ export default function MesAnnonces() {
             }
             pageCount={totalLength / 40}
             breakLabel={"..."}
-            marginPagesDisplayed={3}
+            marginPagesDisplayed={4}
             // pageRangeDisplayed={3}
             onPageChange={handlePageClick}
             containerClassName="flex"

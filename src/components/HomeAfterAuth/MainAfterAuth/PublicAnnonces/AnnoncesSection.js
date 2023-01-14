@@ -30,12 +30,15 @@ export default function AnnoncesSection() {
     window.scrollTo(0, 420);
   };
   return (
-    <section className="  w-full pt-10 pb-10" id="annonces">
-      <div className=" ml-10 text-6xl font-akkar-bold text-akkar-black font-Inter ">
+    <section className=" w-full pt-10 pb-10" id="annonces">
+      <div className=" ml-10 text-3xl font-akkar-bold text-akkar-black font-Inter ">
         <p>Real Estates</p>
       </div>
+      <div className="w-full flex justify-center items-center">
       <AnnoncesItems CurrentAnnonces={Annonces} />
-      <div className="flex w-full justify-center items-center   ">
+
+      </div>
+      <div className="flex w-full  justify-center items-center   ">
         <ReactPaginate
           previousLabel={
             <ion-icon size="large" name="arrow-back-outline"></ion-icon>
