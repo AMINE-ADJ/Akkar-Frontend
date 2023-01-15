@@ -12,7 +12,7 @@ export default function Header() {
   let [open, setOpen] = useState(false);
   const loginFunction = LoginFunction();
   return (
-    <div className="shadow-lg shadow-akkar-orange w-full fixed top-0 left-0 z-100">
+    <div className="shadow-md shadow-akkar-orange w-full fixed top-0 left-0 z-100">
       <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7">
         <HashLink smooth to={"#hero"}>
           <img className="w-[150px] h-16 pb-2 " src={Logo} />

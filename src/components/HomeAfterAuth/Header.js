@@ -7,14 +7,14 @@ export default function Header() {
   let Links = [
     { name: "Home", link: "/authenticated/#hero2" },
     // { name: "Our Services", link: "#services" },
-    { name: "Messages", link: "" },
+    { name: "Messages", link: "/authenticated/mesmessages" },
     { name: "Mes Annonces", link: "/authenticated/mesannonces" },
     { name: "Contact Us", link: "#footer" },
   ];
   let [open, setOpen] = useState(false);
 
   return (
-    <div className="shadow-lg shadow-akkar-orange w-full fixed top-0 left-0 z-100">
+    <div className="shadow-md shadow-akkar-orange w-full fixed top-0 left-0 z-100">
       <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7">
         <HashLink smooth to={"/authenticated/#hero2"}>
           <img className="w-[150px] h-16 pb-2 " src={Logo} />
@@ -37,7 +37,7 @@ export default function Header() {
               <HashLink
                 smooth
                 to={link.link}
-                className="  hover:text-akkar-orange  text-black duration-200 font-Inter font-medium "
+                className="  hover:text-akkar-  text-black duration-200 font-Inter font-medium "
               >
                 {link.name}
               </HashLink>
