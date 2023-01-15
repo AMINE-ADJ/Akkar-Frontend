@@ -17,7 +17,7 @@ export default function MesAnnonces() {
   useEffect(() => {
     axios
       .post(`http://127.0.0.1:8000/api/mesannonces/${page}`, {
-        id: 43,
+        id: user.id,
       })
       .then((res) => {
         // console.log(res);
