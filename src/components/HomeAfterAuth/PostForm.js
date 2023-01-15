@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import adress from "../../assets/adresse-bien.svg";
 import galery from "../../assets/galery.svg";
 import exit from "../../assets/exit.svg";
@@ -12,11 +12,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import userEvent from "@testing-library/user-event";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function PostForm() {
   const user = useSelector((state) => state.user.value);
   const [Wilaya, setWilaya] = useState("");
   const [WilayaId, setWilayaId] = useState(0);
+  const navigate = useNavigate();
 
   const handleWilaya = (SelectedWilaya) => {
     setWilaya(SelectedWilaya);
@@ -125,6 +127,7 @@ export default function PostForm() {
       })
       .then((res) => {
         console.log(res);
+        navigate("/authenticated/mesannonces");
       })
       .catch((e) => {
         console.log(e);
@@ -508,12 +511,14 @@ export default function PostForm() {
             </div>
           ) : null}
         </div>
+
         <button
           type="submit"
           className="  w-[200px] h-[50px] md:w-[300px] md:h-[60px] bg-akkar-orange text-white   text-xl"
         >
           Post Real Estate
-        </button>{" "}
+        </button>
+
         {/** just to test the onSubmit methode */}
         {/** just to test the onSubmit methode */}
       </div>

@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import MesAnnonces from "./components/HomeAfterAuth/MesAnnonces/MesAnnonces";
 import MainAfterAuth from "./components/HomeAfterAuth/MainAfterAuth/MainAfterAuth";
 import SearchPage from "./components/HomeAfterAuth/SearchPage/SearchPage";
+import MessagePage from "./components/HomeAfterAuth/Messages/MessagePage";
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -54,6 +55,7 @@ function App() {
         >
           <Route path="" element={<MainAfterAuth />} />
           <Route path="mesannonces" element={<MesAnnonces />} />
+          <Route path="mesmessages" element={<MessagePage />} />
           <Route path="detailes/:id" element={<Details />} />
           <Route path="posterannonce" element={<PostForm />} />
           <Route path="search/:params" element={<SearchPage/>}/>
