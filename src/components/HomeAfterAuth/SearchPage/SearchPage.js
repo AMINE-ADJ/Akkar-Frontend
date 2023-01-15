@@ -297,8 +297,11 @@ export default function SearchPage() {
                 {...register("toDate")}
                 onChange={(e) => {
                   settodate(e.target.value);
+                  if (isDisabled){
+                    e.target.value="";
+                  }
                 }}
-                className=" w-[200px] md:w-[300px] h-[50px] rounded-2 p-4 border-2 border-[#ECDFD8]   outline-none"
+                className=" w-[200px] md:w-[300px] h-[50px] rounded-2 p-4 border-2 border-[#ECDFD8] outline-none"
                 type="date"
                 name="toDate"
                 placeholder="yyyy/mm/dd"
