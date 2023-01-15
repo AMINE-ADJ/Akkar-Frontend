@@ -13,7 +13,7 @@ export default function MessagesContainer(props){
             </div>
 
 
-            <div className="flex flex-col gap-y-[20px] overflow-scroll  items-center w-[95%] h-[320px]">
+            <div className="flex flex-col gap-y-[20px] overflow-y-scroll  items-center w-[95%] h-[320px]">
 
               {/** here is the container of the messages */}
                 <MessageTemplate customer="Djouima Yanis" time="14/01/2023" telephone="0557300912" email="ka_djouima@esi.dz"/>

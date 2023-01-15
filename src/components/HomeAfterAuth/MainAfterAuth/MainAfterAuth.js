@@ -7,6 +7,7 @@ export default function MainAfterAuth() {
     <div>
         <SearchSection />
       <AnnoncesSection />
+      
     </div>
   )
 }
