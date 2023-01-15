@@ -8,7 +8,7 @@ export default function MessagesContainer(props){
                 <p className="text-left text-sm md:text-lg text-akkar-orange font-medium">title{props.title}</p>
                 <div className="flex flex-row  gap-x-[30px] w-[200px] text-sm text-[#F2976B]">
                     <p>ID {props.id}</p>
-                    <p>time{props.time}</p>
+                    <p>date{props.date}</p>
                 </div>
             </div>
 
