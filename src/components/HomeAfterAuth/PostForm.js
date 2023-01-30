@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import adress from "../../assets/adresse-bien.svg";
 import galery from "../../assets/galery.svg";
 import exit from "../../assets/exit.svg";
@@ -77,14 +77,6 @@ export default function PostForm() {
   const formSubmitHandler = (data) => {
     //data is the set of data retrived from the form it won t be sent unless the form is valid (0 error messages)
 
-    //axios here
-    //     postannonce/   :
-    // méthode: POST
-    // description: déposer l’annonce par l’utilisateur
-    // body de la requête: id(id de l’utilisateur) , categorie, type, wilaya,  commune, surface, prix, description, annonceuremail(email de l’authentification), nom, prenom, email(du contact), telephone, addresseannonceur, commune, wilaya, latitude, longitude,les images chaque entier correspond a une image exemple:
-    // 1:image1
-    // 2:image2
-    // réponse: votre annonce a été enregistrer
     console.log("Submited !");
     console.log("your data ", data);
     console.log("your files to upload", selectedImages);
@@ -106,16 +98,6 @@ export default function PostForm() {
       adresseannonceur: data.adresseannonceur,
       latitude: "",
       longitude: "",
-      // 1: files[0].file,
-      // 2: files[1].file,
-      // 3: files[2].file,
-      // 4: files[3].file,
-      // 5: files[4].file,
-      // 6: files[5].file,
-      // 7: files[6].file,
-      // 8: files[7].file,
-      // 9: files[8].file,
-      // 10: files[9].file,
     };
     for (let i = 0; i < files.length; i++) {
       sendData[`${i + 1}`] = files[i].file;

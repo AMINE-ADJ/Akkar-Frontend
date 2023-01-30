@@ -153,6 +153,7 @@ export default function SearchPage() {
   const [fromdate, setfromdate] = useState();
   const [todate, settodate] = useState();
 
+  
   return (
     <div className="bg-white  w-full pt-32 flex flex-col items-center pb-10">
       <form onSubmit={handleSubmit(formSubmitHandler)}>
@@ -270,7 +271,10 @@ export default function SearchPage() {
                 {...register("fromDate")}
                 onChange={(e) => {
                   if (e.target.value) setIsDisabled(false);
-                  else setIsDisabled(true);
+                  else {setIsDisabled(true)
+                    
+                      settodate("");
+                    };
                   setfromdate(e.target.value);
                 }}
                 className=" w-[200px] md:w-[300px] h-[50px] rounded-2 p-4 border-2 border-[#ECDFD8] outline-none"
@@ -297,10 +301,9 @@ export default function SearchPage() {
                 {...register("toDate")}
                 onChange={(e) => {
                   settodate(e.target.value);
-                  if (isDisabled){
-                    e.target.value="";
-                  }
+                
                 }}
+                value={todate}
                 className=" w-[200px] md:w-[300px] h-[50px] rounded-2 p-4 border-2 border-[#ECDFD8] outline-none"
                 type="date"
                 name="toDate"
