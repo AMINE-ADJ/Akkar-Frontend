@@ -9,24 +9,25 @@ export default function MessagePage() {
   const user = useSelector((state) => state.user.value);
   const [AnnonceCards, setAnnonceCards] = useState([]);
   const [totalLength, settotalLength] = useState(0);
+  const [page, setPage] = useState(1);
   useEffect(() => {
     axios
-      .post(" http://127.0.0.1:8000/api/messages/?page=1", {
+      .post(`http://127.0.0.1:8000/api/messages/?page=${page}`, {
         userid: user.id,
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data.results);
         setAnnonceCards(res.data.results);
         settotalLength(res.data.count);
       })
       .catch((e) => {
         console.log(e);
       });
-  }, []);
+  }, [page]);
   const handlePageClick = (data) => {
     // console.log(data.selected);
-    // setPage(data.selected + 1);
-    // window.scrollTo(0, 0);
+    setPage(data.selected + 1);
+    window.scrollTo(0, 0);
   };
   console.log(AnnonceCards);
   console.log(totalLength);
@@ -47,7 +48,7 @@ export default function MessagePage() {
             nextLabel={
               <ion-icon size="large" name="arrow-forward-outline"></ion-icon>
             }
-            pageCount={totalLength / 40}
+            pageCount={totalLength / 5}
             breakLabel={"..."}
             marginPagesDisplayed={4}
             // pageRangeDisplayed={3}
