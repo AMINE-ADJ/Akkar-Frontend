@@ -12,3 +12,7 @@ input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
       ;
       
     }
+    div{
+      user-select: none;
+    }
+   

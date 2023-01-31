@@ -13,7 +13,7 @@ export default function Contact(props) {
 
       <div className="w-[100%] h-[40px] flex flex-col md:flex-row items-center justify-center md:justify-between">
         <div className="md:w-[400px]">
-          <div className="flex flex-row w-[350px] md:w-[210px]  justify-center h-[50px] items-center gap-x-[45px]">
+          <div className="flex flex-row w-fit  justify-center h-[50px] items-center gap-x-[45px]">
             <div className="md:w-[25px] md:h-[25px] w-[20px] h-[20px]">
               <img className="w-[100%] h-[100%] object-cover" src={phone}></img>
             </div>
