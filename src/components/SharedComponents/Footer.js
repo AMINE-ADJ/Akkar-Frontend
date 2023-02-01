@@ -4,7 +4,7 @@ import Logo from "../../assets/logoCreme.svg";
 export default function Footer() {
   return (
     <section
-      className="bg-akkar-brown h-44 w-full  flex flex-col md:gap-5 gap-2 items-center justify-end"
+      className="bg-akkar-brown h-44 w-full  flex flex-col md:gap-5 gap-2 items-center mt-16 justify-end"
       id="footer"
     >
       <div className="flex gap-10 items-center text-akkar-brown-creme">
