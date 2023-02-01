@@ -41,37 +41,6 @@ export default function SearchSection() {
             id="checkboxes-container"
             className="flex flex-row justify-start gap-x-12 w-[500px] md:w-[980px] ml-[60px] mb-[70px]"
           >
-            <div className="flex flex-row  justify-center items-center">
-              <div className="flex felx-row justify-center items-center">
-                <input
-                  type={"checkbox"}
-                  className=" w-[17px] h-[17px] md:w-[20px] md:h-[20px] appearance-none border-2 rounded-[2px] relative check-box cursor-pointer z-10"
-                ></input>
-                <img
-                  src={check}
-                  className="w-[15px] h-[15px] md:w-[17px] md:h-[17px] absolute opacity-0 check"
-                ></img>
-              </div>
-              <p className="text-sm md:text-lg text-white font-normal ml-[9px]">
-                From Akkar
-              </p>
-            </div>
-
-            <div className="flex flex-row  justify-center items-center">
-              <div className="flex felx-row justify-center items-center">
-                <input
-                  type={"checkbox"}
-                  className=" w-[17px] h-[17px] md:w-[20px] md:h-[20px] appearance-none border-2 rounded-[2px] relative check-box cursor-pointer z-10"
-                ></input>
-                <img
-                  src={check}
-                  className=" w-[15px] h-[15px] md:w-[17px] md:h-[17px] absolute opacity-0 check"
-                ></img>
-              </div>
-              <p className="text-sm md:text-lg text-white font-normal ml-[9px]">
-                From another sites
-              </p>
-            </div>
           </div>
         </div>
       </form>

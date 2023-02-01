@@ -10,7 +10,7 @@ export default function Post(props) {
   const [sendMessage, setSendMessage] = useState(false);
   return (
     //
-    <div className=" m-10 flex flex-col justify-between items-center w-[80%] h-[370px] rounded-[7px] border-2 border-[#E7E9EB] cursor-pointer">
+    <div className=" m-10 flex flex-col justify-between items-center w-[72%] xl:w-[80%] h-[370px] rounded-[7px] border-2 border-[#E7E9EB] cursor-pointer">
       <Link to={`/authenticated/detailes/${props.Postid}`}>
         <div className="w-[100.5%] h-[170px] rounded-[7px] ">
           <img
