@@ -53,7 +53,7 @@ export default function Map(props){
       <button onClick={()=>{props.set(false);
       console.log(props.data);
           props.dataSet("localisation",`${position.lat},${position.lng}`);
-    }} className=" z-50 w-[200px] h-[50px] bg-akkar-orange text-center text-xl text-white">Close</button>
+    }} className=" z-50 w-[200px] h-[50px] bg-akkar-orange text-center text-xl text-white">Confirm</button>
 
         </div>
    </div>

@@ -98,8 +98,8 @@ export default function PostForm() {
       email: data.email,
       telephone: data.telephone,
       adresseannonceur: data.adresseannonceur,
-      latitude: "",
-      longitude: "",
+      latitude: coords.lat,
+      longitude: coords.lng,
     };
     for (let i = 0; i < files.length; i++) {
       sendData[`${i + 1}`] = files[i].file;

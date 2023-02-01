@@ -57,7 +57,12 @@ export default function Details() {
         <>
           <PhotosSection data={Annonce.my_image} />
           <Description description={Annonce.description} />
-          <InfosSection InfoAnnonce={Annonce} />
+          <InfosSection
+            isWebScraping={
+              Annonce.annonceuremail == "annonce-algerie" ? true : false
+            }
+            InfoAnnonce={Annonce}
+          />
           <ContactSection
             InfoContact={Annonce.my_contact}
             isWebScraping={
