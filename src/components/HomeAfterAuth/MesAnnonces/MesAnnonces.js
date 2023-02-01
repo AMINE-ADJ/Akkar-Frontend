@@ -40,7 +40,7 @@ export default function MesAnnonces() {
   return (
     <div className="bg-white w-full mt-32 ">
       <p className="flex justify-center mt-20 ml-10 text-6xl font-akkar-bold text-akkar-black font-Inter">
-        Mes Annonces {user.id}{" "}
+        Mes Annonces
       </p>
       <AnnoncesItems CurrentAnnonces={MesAnnonces} />
       <div className="flex w-full justify-center items-center   ">

@@ -1,18 +1,17 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import localisation from "../../assets/Localisation.svg";
 import clock from "../../assets/clock.svg";
 import send from "../../assets/Send.svg";
 import arrows from "../../assets/Arrows.svg";
 import MessageForm from "./MessageForm";
 
-
 import { Link } from "react-router-dom";
 export default function Post(props) {
- const [sendMessage,setSendMessage]=useState(false);
+  const [sendMessage, setSendMessage] = useState(false);
   return (
-    // 
-      <div className=" m-10 flex flex-col justify-between items-center w-[80%] h-[370px] rounded-[7px] border-2 border-[#E7E9EB] cursor-pointer">
-     <Link to={`/authenticated/detailes/${props.Postid}`}>
+    //
+    <div className=" m-10 flex flex-col justify-between items-center w-[80%] h-[370px] rounded-[7px] border-2 border-[#E7E9EB] cursor-pointer">
+      <Link to={`/authenticated/detailes/${props.Postid}`}>
         <div className="w-[100.5%] h-[170px] rounded-[7px] ">
           <img
             src={props.img}
@@ -41,28 +40,23 @@ export default function Post(props) {
         </div>
 
         <div className="w-full h-[2px] bg-[#E7E9EB] mb-[-20px]"></div>
-        </Link>
+      </Link>
 
-        <div className="flex flex-row justify-between p-5 items-center w-full md:mt-[10px]">
-          <p className="text-lg text-akkar-orange font-medium ">
-            {props.price}
-          </p>
+      <div className="flex flex-row justify-between p-5 items-center w-full md:mt-[10px]">
+        <p className="text-lg text-akkar-orange font-medium ">{props.price}</p>
 
-
-          <button onClick={()=> setSendMessage(true)}>
-            <div className="flex flex-row justify-center bg-akkar-orange-second w-[30px] h-[30px]">
-              <img src={send}></img>
-            </div>
-          </button>
-
-
-
-          
-        </div>
-        {sendMessage ? (
-         <MessageForm set={setSendMessage}></MessageForm>
-      ) : null}
+        <>
+          {!props.isWebScraping && (
+            <button onClick={() => setSendMessage(true)}>
+              <div className="flex flex-row justify-center bg-akkar-orange-second w-[30px] h-[30px]">
+                <img src={send}></img>
+              </div>
+            </button>
+          )}
+        </>
       </div>
+      {sendMessage ? <MessageForm set={setSendMessage}></MessageForm> : null}
+    </div>
     // </Link>
   );
 }

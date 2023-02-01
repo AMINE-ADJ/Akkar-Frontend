@@ -17,6 +17,9 @@ export default function AnnoncesItems({ CurrentAnnonces }) {
                 area={Annonce.surface}
                 time={Annonce.date}
                 price={Annonce.prix}
+                isWebScraping={
+                  Annonce.annonceuremail == "annonce-algerie" ? true : false
+                }
               ></Post>
             </div>
           );
