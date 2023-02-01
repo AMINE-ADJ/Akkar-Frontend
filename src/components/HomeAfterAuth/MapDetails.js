@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-import { MapContainer, TileLayer, useMapEvents,Marker,Popup } from 'react-leaflet'
+import { MapContainer, TileLayer,Marker } from 'react-leaflet'
 import L, { map, marker } from "leaflet"
 
 export default function Map(props){ //props are a table [lat,lng]

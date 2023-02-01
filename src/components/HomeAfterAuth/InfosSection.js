@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Info from "./Info";
 import Map from "./MapDetails";
 export default function InfosSection(props) {
@@ -11,15 +11,41 @@ export default function InfosSection(props) {
   //     type:"house",
   //     localisation:"medea , elguelb elkbir "
   // }
-  const data = props.InfoAnnonce;
+  let data = props.InfoAnnonce;
   const isWebScraping = props.isWebScraping;
   console.log(isWebScraping);
   console.log(data);
-  const position = [
+  let  position = [
     parseFloat(data.my_localisation.latitude),
     parseFloat(data.my_localisation.longitude),
   ];
   console.log(position);
+   const [webScrapingCoords,setWebScrapingCoords]=useState(null);
+
+   var url = "https://geocode.maps.co/search?q="+`${data.my_localisation.wilaya}`;
+
+   useEffect(() => {
+    if(isWebScraping){
+      fetch(url).then(response => response.json())
+      .then(reply =>{
+        console.log("dataa",data);
+        console.log("reply", reply[0].lat, reply[0].lon);
+       data.my_localisation.latitude=reply[0].lat;
+       data.my_localisation.longitude=reply[0].lon;
+       position=[
+        parseFloat(data.my_localisation.latitude),
+        parseFloat(data.my_localisation.longitude),
+       ]
+      } )
+      .catch(err => console.log(err))  
+     }
+  }, []);
+
+
+
+
+  
+
   return (
     <div className="w-full min-w-fit h[400px] md:h-[620px] flex flex-col md:flex-row items-center gap-y-[20px] md:gap-x-[50px] pt-5  justify-center">
       <Info
@@ -33,9 +59,9 @@ export default function InfosSection(props) {
       ></Info>
 
       <>
-        {!isWebScraping && (
+        { (
           <div className=" w-[500px] md:w-[500px] h-[430px] rounded-2">
-            <Map position={position} />
+            <Map position = {position} />
           </div>
         )}
       </>
