@@ -6,7 +6,7 @@ export default function SearchSection() {
   const [inpuText, setinputText] = useState("");
   // console.log(inpuText);
   return (
-    <section className="w-full h-fit pt-[90px] bg-akkar-black" id="hero2">
+    <section className="w-full h-fit pt-[85px] md:pt-4" id="hero2">
       <form className="w-full h-[250px] md:h-[400px] bg-wood-bg bg-cover ">
         <div className="w-full h-[250px] md:h-[400px]  bg-filter flex flex-col justify-around items-center">
           <h1 className="text-center text-white text-3xl md:text-5xl md:mt-[50px]">

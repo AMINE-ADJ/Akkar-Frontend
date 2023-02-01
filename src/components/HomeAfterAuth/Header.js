@@ -5,7 +5,7 @@ import Logo from "../../assets/logo.svg";
 import { LogoutFunction } from "../SharedComponents/LogoutFunction";
 export default function Header() {
   let Links = [
-    { name: "Home", link: "/authenticated/#hero2" },
+    { name: "Home", link: "/authenticated/" },
     // { name: "Our Services", link: "#services" },
     { name: "Messages", link: "/authenticated/mesmessages" },
     { name: "Mes Annonces", link: "/authenticated/mesannonces" },
@@ -14,11 +14,16 @@ export default function Header() {
   let [open, setOpen] = useState(false);
 
   return (
-    <div className="shadow-md shadow-akkar-orange w-full fixed top-0 left-0 z-100">
-      <div className="md:flex items-center justify-between bg-white py-2 md:px-5 px-7">
-        <HashLink smooth to={"/authenticated/#hero2"}>
-          <img className="w-[150px] h-16 pb-2 " src={Logo} />
-        </HashLink>
+    <div className="shadow-md shadow-akkar-orange w-full md:static fixed top-0 left-0 z-100">
+      <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7">
+        <div>
+          <HashLink smooth to={"/authenticated/"}>
+            <img
+              className="w-[150px] h-16 lg:pb-2 md:mx-10 md:pr-10"
+              src={Logo}
+            />
+          </HashLink>
+        </div>
 
         <div
           onClick={() => setOpen(!open)}
@@ -33,7 +38,10 @@ export default function Header() {
           }`}
         >
           {Links.map((link) => (
-            <li key={link.name} className="md:mx-12 text-lg md:my-0 my-3">
+            <li
+              key={link.name}
+              className="md:mx-auto md:px-10 text-lg md:my-0 my-3"
+            >
               <HashLink
                 smooth
                 to={link.link}
