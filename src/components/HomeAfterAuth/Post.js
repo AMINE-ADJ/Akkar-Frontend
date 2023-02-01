@@ -59,9 +59,9 @@ export default function Post(props) {
 
           
         </div>
-        {console.log(sendMessage)}
-
-        
+        {sendMessage ? (
+         <MessageForm set={setSendMessage}></MessageForm>
+      ) : null}
       </div>
     // </Link>
   );

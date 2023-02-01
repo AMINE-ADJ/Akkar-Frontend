@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import adress from "../../assets/adresse-bien.svg";
 import galery from "../../assets/galery.svg";
 import exit from "../../assets/exit.svg";
@@ -13,7 +13,7 @@ import axios from "axios";
 import userEvent from "@testing-library/user-event";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import Map from "./Map";
 export default function PostForm() {
   const user = useSelector((state) => state.user.value);
   const [Wilaya, setWilaya] = useState("");
@@ -35,9 +35,10 @@ export default function PostForm() {
     surface: yup.string().required("Area is required").min(2),
     prix: yup.string().required("Price is required").min(7),
     wilaya: yup.string().required("Wilaya is required"),
-    commune: yup.string().required("commune is required"),
+    commune: yup.string().required("Commune is required"),
     nom: yup.string().required("Family name is required"),
     prenom: yup.string().required("First name is required"),
+    localisation: yup.string().required("Localisation is required"),
     email: yup
       .string()
       .email("Invalid email format")
@@ -50,6 +51,7 @@ export default function PostForm() {
   //useForm liberary setup this will manage all the form fields and validate the form using the yup schema
   const {
     register,
+    setValue,
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -77,14 +79,6 @@ export default function PostForm() {
   const formSubmitHandler = (data) => {
     //data is the set of data retrived from the form it won t be sent unless the form is valid (0 error messages)
 
-    //axios here
-    //     postannonce/   :
-    // méthode: POST
-    // description: déposer l’annonce par l’utilisateur
-    // body de la requête: id(id de l’utilisateur) , categorie, type, wilaya,  commune, surface, prix, description, annonceuremail(email de l’authentification), nom, prenom, email(du contact), telephone, addresseannonceur, commune, wilaya, latitude, longitude,les images chaque entier correspond a une image exemple:
-    // 1:image1
-    // 2:image2
-    // réponse: votre annonce a été enregistrer
     console.log("Submited !");
     console.log("your data ", data);
     console.log("your files to upload", selectedImages);
@@ -106,16 +100,6 @@ export default function PostForm() {
       adresseannonceur: data.adresseannonceur,
       latitude: "",
       longitude: "",
-      // 1: files[0].file,
-      // 2: files[1].file,
-      // 3: files[2].file,
-      // 4: files[3].file,
-      // 5: files[4].file,
-      // 6: files[5].file,
-      // 7: files[6].file,
-      // 8: files[7].file,
-      // 9: files[8].file,
-      // 10: files[9].file,
     };
     for (let i = 0; i < files.length; i++) {
       sendData[`${i + 1}`] = files[i].file;
@@ -150,7 +134,10 @@ export default function PostForm() {
     setSelectedImages(selectedImages.concat(imagesArray));
     setfiles(files.concat(currentFiles));
   };
-
+  const inputLocation=useRef(null);
+  const [Localisation,setLocalisation]=useState(false);
+  const [coords,setCoords]=useState({});
+  console.log("your coords are",coords);
   return (
     <form
       onSubmit={handleSubmit(formSubmitHandler)}
@@ -343,13 +330,22 @@ export default function PostForm() {
                 ></img>
               </div>
 
-              <input
+              <input ref={inputLocation} onClick={()=>{setLocalisation(true);
+              
+              
+            }}
+                {...register("localisation")}
                 className=" w-[370px] md:w-[790px] h-[45px] rounded-2 p-4  outline-none"
-                type="text"
                 name="localisation"
-                placeholder="Localisation"
+                type="text"
               ></input>
             </div>
+            {errors.localisation ? (
+              <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+                {" "}
+                {errors.localisation.message}
+              </div>
+            ) : null}
           </div>
         </div>
         <p className="text-left text-xl md:text-3xl font-normal md:mr-[620px]">
@@ -522,6 +518,12 @@ export default function PostForm() {
         {/** just to test the onSubmit methode */}
         {/** just to test the onSubmit methode */}
       </div>
+      {Localisation ? (
+         <Map set={setLocalisation} setPos={setCoords} dataSet={setValue}></Map>
+         //set to hide the popup
+         //setPos to get lat and lng in a separate object {lat,lng}
+        //dataSet to get the values and display them in the input 
+      ) : null}
     </form>
   );
 }

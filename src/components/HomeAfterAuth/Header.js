@@ -44,9 +44,9 @@ export default function Header() {
             </li>
           ))}
           <Link to="/authenticated/posterannonce">
-          {/* <Link to={`/authenticated/posterannonce/${user.id}`}> */}
+            {/* <Link to={`/authenticated/posterannonce/${user.id}`}> */}
             <button
-              className="bg-akkar-orange-second text-akkar-orange font-Inter py-2 px-9 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
+              className="bg-akkar-orange-second text-akkar-orange font-Inter py-2 px-4 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
     duration-200"
             >
               <ion-icon name="add-outline"></ion-icon> Post estate

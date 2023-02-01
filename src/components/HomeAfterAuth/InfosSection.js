@@ -1,7 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import Info from "./Info";
-import map from "../../assets/map.svg";
-
+import Map from "./MapDetails"
 export default function InfosSection(props) {
   //   let data={
   //     id:"123697",
@@ -13,6 +12,8 @@ export default function InfosSection(props) {
   //     localisation:"medea , elguelb elkbir "
   // }
   const data = props.InfoAnnonce;
+  const position=[36.7762, 3.05997];
+
   return (
     <div className="w-full min-w-fit h[400px] md:h-[620px] flex flex-col md:flex-row items-center gap-y-[20px] md:gap-x-[50px] pt-5  justify-center">
       <Info
@@ -25,8 +26,10 @@ export default function InfosSection(props) {
         localisation={data.my_localisation}
       ></Info>
       <div className=" w-[500px] md:w-[500px] h-[430px] rounded-2">
-        <img className="w-[100%] h-[100%] object-cover" src={map}></img>
+      <Map position={position}/>
       </div>
     </div>
   );
+  
 }
+

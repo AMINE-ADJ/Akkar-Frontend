@@ -8,6 +8,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import userReducer from "./feautures/user";
+import "leaflet/dist/leaflet.css";
 const store = configureStore({
   reducer: {
     user: userReducer,
