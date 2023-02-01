@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <div className="shadow-md shadow-akkar-orange w-full fixed top-0 left-0 z-100">
-      <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7">
+      <div className="md:flex items-center justify-between bg-white py-2 md:px-5 px-7">
         <HashLink smooth to={"/authenticated/#hero2"}>
           <img className="w-[150px] h-16 pb-2 " src={Logo} />
         </HashLink>
@@ -33,7 +33,7 @@ export default function Header() {
           }`}
         >
           {Links.map((link) => (
-            <li key={link.name} className="md:mx-16 text-lg md:my-0 my-3">
+            <li key={link.name} className="md:mx-12 text-lg md:my-0 my-3">
               <HashLink
                 smooth
                 to={link.link}
@@ -46,7 +46,7 @@ export default function Header() {
           <Link to="/authenticated/posterannonce">
             {/* <Link to={`/authenticated/posterannonce/${user.id}`}> */}
             <button
-              className="bg-akkar-orange-second text-akkar-orange font-Inter py-2 px-4 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
+              className="bg-akkar-orange-second text-akkar-orange font-Inter md:my-0 my-2 md:py-2 py-1 md:px-4 px-2 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
     duration-200"
             >
               <ion-icon name="add-outline"></ion-icon> Post estate
@@ -55,10 +55,14 @@ export default function Header() {
           <Link to="/">
             <button
               onClick={() => LogoutFunction()}
-              className="bg-akkar-orange-second text-red-700 font-Inter text-xl items-center ml-3 py-2 px-1 flex rounded-[3px] hover:bg-akkar-orange-second hover:text-black
+              className="bg-akkar-orange-second text-red-700 font-Inter md:text-xl md:my-0 my-2 text-lg items-center md:ml-3 md:py-2 py-1  px-1 flex rounded-[3px] hover:bg-akkar-orange-second hover:text-black
     duration-200"
             >
-              <ion-icon size="large" name="log-out-outline"></ion-icon> LOGOUT
+              <ion-icon
+                size="md:large small "
+                name="log-out-outline"
+              ></ion-icon>{" "}
+              LOGOUT
             </button>
           </Link>
         </ul>
