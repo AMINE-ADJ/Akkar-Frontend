@@ -1,12 +1,16 @@
-import React from "react";
+import React ,{useState} from "react";
 import phone from "../../assets/phone.svg";
 import mail from "../../assets/mail.svg";
 import adress from "../../assets/adress.svg";
 import message from "../../assets/Send.svg";
 import { Link } from "react-router-dom";
+import MessageForm from "./MessageForm";
+
 export default function Contact(props) {
   // const isWebScraping = false;
   const isWebScraping = props.isWebScraping;
+  const [sendmessage,setSendmessage]=useState(false);
+
   return (
     <div className=" w-[400px] md:w-[1000px] h-[400px] flex flex-col md:items-start items-center    gap-y-[50px] p-5">
       <p className="  text-left text-3xl md:text-4xl font-medium">Contact</p>
@@ -72,7 +76,7 @@ export default function Contact(props) {
               </div>
             </div>
             <div className="flex flex-row gap-96  items-baseline">
-            <button className="cursor-pointer">
+            <button onClick={()=> setSendmessage(true)} className="cursor-pointer">
               <div className="md:mt-[0px] mt-[30px]  w-[250px] h-[40px] md:h-[60px] bg-akkar-orange-second flex flex-row items-center justify-between p-[20px]">
                 <p className="text-left text-sm md:text-lg text-akkar-orange">
                   Contact via the app{" "}
@@ -88,8 +92,15 @@ export default function Contact(props) {
            
            
           </>
+          
         )}
+         {console.log(sendmessage)}
+             {
+             sendmessage ? (
+         <MessageForm set={setSendmessage}></MessageForm>
+      ) : null}  
       </>
+
     </div>
   );
 }

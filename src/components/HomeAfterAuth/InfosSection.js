@@ -19,6 +19,7 @@ export default function InfosSection(props) {
     parseFloat(data.my_localisation.latitude),
     parseFloat(data.my_localisation.longitude),
   ];
+  const pos=[];
   console.log(position);
    const [webScrapingCoords,setWebScrapingCoords]=useState(null);
 
@@ -28,21 +29,14 @@ export default function InfosSection(props) {
     if(isWebScraping){
       fetch(url).then(response => response.json())
       .then(reply =>{
-        console.log("dataa",data);
-        console.log("reply", reply[0].lat, reply[0].lon);
-       data.my_localisation.latitude=reply[0].lat;
-       data.my_localisation.longitude=reply[0].lon;
-       position=[
-        parseFloat(data.my_localisation.latitude),
-        parseFloat(data.my_localisation.longitude),
-       ]
+       setWebScrapingCoords([parseFloat(reply[0].lat),parseFloat(reply[0].lon)]);
+
       } )
       .catch(err => console.log(err))  
      }
   }, []);
 
-
-
+      console.log(webScrapingCoords);
 
   
 
@@ -59,9 +53,14 @@ export default function InfosSection(props) {
       ></Info>
 
       <>
-        { (
+        {!isWebScraping && (
           <div className=" w-[500px] md:w-[500px] h-[430px] rounded-2">
-            <Map position = {position} />
+            <Map position = { position } />
+          </div>
+        )}
+         {isWebScraping && webScrapingCoords!=null && (
+          <div className=" w-[500px] md:w-[500px] h-[430px] rounded-2">
+            <Map position = { webScrapingCoords } />
           </div>
         )}
       </>
