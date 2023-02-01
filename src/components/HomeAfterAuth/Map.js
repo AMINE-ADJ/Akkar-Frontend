@@ -42,7 +42,7 @@ export default function Map(props){
         <div className=" w-full flex justify-center items-center overflow-x-hidden overflow-y-auto mt-[50px] fixed inset-0 z-50 outline-none focus:outline-none">
         <div className=" w-fit h-fit flex flex-col  gap-y-[10px]  items-center"
 >
-        <MapContainer  center={positions} zoom={13} whenCreated={(map) => this.setState({ map })} >
+        <MapContainer id="map"  center={positions} zoom={13} whenCreated={(map) => this.setState({ map })} >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
