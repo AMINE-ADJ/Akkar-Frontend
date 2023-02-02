@@ -158,10 +158,10 @@ export default function SearchPage() {
     <div className="bg-white  w-full pt-32 flex flex-col items-center pb-10">
       <form onSubmit={handleSubmit(formSubmitHandler)}>
         <div className="flex flex-col justify-center items-center md:items-start gap-5">
-          <div className=" w-[400px] md:w-[915px] h-[50px] flex flex-row gap-12 items-center p-5 border-2 border-[#ECDFD8] rounded-2">
+          <div className=" w-[300px] sm:w-[400px] md:w-[915px] h-[50px] flex flex-row gap-12 items-center p-5 border-2 border-[#ECDFD8] rounded-2">
             <input
               {...register("SearchText")}
-              className=" w-[370px] md:w-[790px] h-[45px] rounded-2 p-4  outline-none"
+              className=" w-[300px] sm:w-[370px] md:w-[790px] h-[45px] rounded-2 p-4  outline-none"
               type="text"
               name="SearchText"
               defaultValue={inpuText}
@@ -289,7 +289,7 @@ export default function SearchPage() {
               ) : null}
               {isErreur ? (
                 <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
-                  {"Your To date is sghira 3la from date"}
+                  {"Date invalide"}
                 </div>
               ) : null}
             </div>
@@ -333,8 +333,10 @@ export default function SearchPage() {
       </form>
 
       {/* Searchresults */}
+ <div className="w-full flex justify-center items-center">
+ <AnnoncesItems CurrentAnnonces={MesAnnonces} />
 
-      <AnnoncesItems CurrentAnnonces={MesAnnonces} />
+ </div>
       <div className="flex w-full justify-center items-center   ">
         {totalLength != 0 ? (
           <ReactPaginate
