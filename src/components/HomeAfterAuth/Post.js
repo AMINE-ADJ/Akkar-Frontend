@@ -10,21 +10,22 @@ export default function Post(props) {
   const [sendMessage, setSendMessage] = useState(false);
   return (
     //
-    <div className=" text-[16px] sm:text-[18px] md:text-[19px] xl:text-[21px] items-center m-6 flex flex-col justify-between  w-[82%] md:w-[80%] xl:w-[78%] h-[370px] rounded-[7px] border-2 border-[#E7E9EB] cursor-pointer">
+    <div className=" text-[16px] sm:text-[18px] md:text-[19px] xl:text-[21px] items-center m-6 flex flex-col justify-between  w-[82%] md:w-[80%] xl:w-[300px] h-[370px] rounded-[7px] border-2 border-[#E7E9EB] cursor-pointer">
       <Link to={`/authenticated/detailes/${props.Postid}`}>
-        <div className="w-[100.5%] h-[170px] rounded-[7px] ">
+       <div className=" flex justify-center w-[100.5%] h-[170px] rounded-[7px] ">
           <img
             src={props.img}
             className="w-[100%] h-[100%] object-cover rounded-t-[7px] mt-[-2px]"
           ></img>
         </div>
-      <div className="h-[90px]">
+        
+      <div className="h-[90px] w-full">
       <p className="text-left text-black font-medium   m-[10px]  ">
           {props.title}
         </p>
       </div>
        
-        <div className=" text-[12px] sm:text-[13px] md:text-[12px] text-[#6D737A] flex flex-row justify-around   items-center w-full h-[50px] mt-[-10px]">
+        <div className=" text-[12px] sm:text-[13px] md:text-[12px] xl:text-[17px] text-[#6D737A] flex flex-row justify-around   items-center w-full h-[50px] mt-[-10px]">
           <div className=" flex flex-row justify-center items-center gap-[2px] ">
             <img src={localisation} className="w-[15px] xl:w-[19px] xl:h-[19px] md:w-[17px] md:h-[17px] h-[15px]"></img>
             <p> {props.localisation}</p>

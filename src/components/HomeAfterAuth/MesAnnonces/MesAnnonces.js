@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import  SearchBar from "../../HomeAfterAuth/MainAfterAuth/SearchSection/SearchSection"
 import Post from "../Post";
 // import pic from "../../assets/house.svg";
 import AnnoncesItems from "../MainAfterAuth/PublicAnnonces/AnnoncesItems";
@@ -41,10 +42,15 @@ export default function MesAnnonces() {
   };
   return (
     <div className="bg-white w-full mt-32 ">
+<div className="w-[500px]"></div>
+
       <p className="flex justify-center md:mt-20 md:ml-10 md:text-6xl text-3xl  font-akkar-bold text-akkar-black font-Inter">
         Mes Annonces
       </p>
+      <div className="w-full flex justify-center items-center">
+
       <AnnoncesItems CurrentAnnonces={MesAnnonces} />
+      </div>
       <div className="flex w-full justify-center items-center mt-32 md:mt-6    ">
         {totalLength != 0 ? (
           <ReactPaginate

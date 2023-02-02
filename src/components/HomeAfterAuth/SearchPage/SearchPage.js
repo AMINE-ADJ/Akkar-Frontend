@@ -333,7 +333,10 @@ export default function SearchPage() {
       </form>
 
       {/* Searchresults */}
+      <div className="w-[500px]"></div>
+
  <div className="w-full flex justify-center items-center">
+
  <AnnoncesItems CurrentAnnonces={MesAnnonces} />
 
  </div>
