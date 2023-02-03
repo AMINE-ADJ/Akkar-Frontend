@@ -14,7 +14,7 @@ export default function Header() {
   let [open, setOpen] = useState(false);
 
   return (
-    <div className="shadow-md shadow-akkar-orange w-full md:static fixed top-0 left-0 z-100">
+    <div className="shadow-md shadow-akkar-orange w-full md:sticky fixed top-0 left-0  z-100">
       <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7">
         <div>
           <HashLink smooth to={"/authenticated/"}>
