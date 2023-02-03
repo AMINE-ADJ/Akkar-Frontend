@@ -58,7 +58,7 @@ export default function Post(props) {
           )}
         </>
       </div>
-      {sendMessage ? <MessageForm set={setSendMessage}></MessageForm> : null}
+      {sendMessage ? <MessageForm PostId={props.Postid} set={setSendMessage}></MessageForm> : null}
     </div>
     // </Link>
   );

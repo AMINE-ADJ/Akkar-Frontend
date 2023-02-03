@@ -26,6 +26,7 @@ export default function MessageForm(props) {
   });
   const formSubmitHandler = (data) => {
     // console.log(data);
+    console.log(props.PostId);
     var sendData = {
       annonce: props.PostId,
       offre: data.offer,
