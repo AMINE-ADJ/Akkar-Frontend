@@ -4,10 +4,10 @@ import Logo from "../../assets/logo.svg";
 import { LoginFunction } from "../SharedComponents/LoginFunction";
 export default function Header() {
   let Links = [
-    { name: "Home", link: "#hero" },
-    { name: "Our Services", link: "#services" },
-    { name: "Our Team", link: "#team" },
-    { name: "Contact Us", link: "#footer" },
+    { name: "Acceuil", link: "#hero" },
+    { name: "Nos Services", link: "#services" },
+    { name: "Notre Equipe", link: "#team" },
+    { name: "Contactez-nous", link: "#footer" },
   ];
   let [open, setOpen] = useState(false);
   const loginFunction = LoginFunction();

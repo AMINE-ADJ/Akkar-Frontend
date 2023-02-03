@@ -8,13 +8,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 export default function MessageForm(props) {
   const registerSchema = yup.object().shape({
-    name: yup.string().required("Full name is required"),
+    name: yup.string().required("Le nom est obligatoire"),
     email: yup
       .string()
-      .email("Invalid email format")
-      .required("Email is required"),
-    phone: yup.string().required("Phone number is required").min(8),
-    offer: yup.string().required("Offer is required"),
+      .email("Format invalide")
+      .required("L'Email est obligatoire"),
+    phone: yup.string().required("Le numéro de téléphone est obligatoire").min(8),
+    offer: yup.string().required("L'offre est obligatoire"),
   });
 
   const {
@@ -55,14 +55,14 @@ export default function MessageForm(props) {
           {/*header*/}
 
           <div className="flex w-full justify-between  items-center">
-            <p className="text-lg">Contact the seller</p>
+            <p className="text-lg">Contactez le vendeur</p>
             <div className="cursor-pointer" onClick={() => props.set(false)}>
               <img src={close} className="w-[20px] h-[20px]"></img>
             </div>
           </div>
           <div className="w-[350px] h-[1px] bg-[#58595B]"></div>
-          <div className="flex flex-col gap-y-[20px]">
-            <label>Full name</label>
+          <div className="flex flex-col gap-y-[7px]">
+            <label>Nom et prénom</label>
             <div className="flex flex-col">
               <input
                 className=" px-2 w-[260px] h-[35px] border-2 border-[#ECDFD8] outline-none"
@@ -96,7 +96,7 @@ export default function MessageForm(props) {
             </div>
           </div>
           <div className="flex flex-col gap-y-[10px]">
-            <label>Phone number</label>
+            <label>Numéro de téléphone</label>
             <div className="flex flex-col">
               <div className="flex flex-row border-2 gap-x-[5px] border-[#ECDFD8] items-center">
                 <img src={phone} className="w-[20px] h-[20px] ml-[10px]"></img>
@@ -131,9 +131,9 @@ export default function MessageForm(props) {
 
           <button
             type="submit"
-            className="w-[260px] h-[60px] rounded-3 bg-akkar-orange text-white text-center rounded-2"
+            className="w-[260px] h-[40px] rounded-3 mt-3 bg-akkar-orange text-white text-center rounded-3 hover:bg-akkar-orange-second hover:text-akkar-orange"
           >
-            Send offer
+            Envoyer offre
           </button>
         </form>
       </div>

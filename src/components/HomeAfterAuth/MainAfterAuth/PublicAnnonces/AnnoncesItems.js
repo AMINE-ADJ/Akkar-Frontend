@@ -5,7 +5,7 @@ import pic from "../../../../assets/house.svg";
 export default function AnnoncesItems({ CurrentAnnonces }) {
   return (
     <div className="  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {CurrentAnnonces &&
+      {CurrentAnnonces && CurrentAnnonces!=null &&
         CurrentAnnonces.map((Annonce) => {
           return (
             <div key={Annonce.id}>

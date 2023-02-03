@@ -17,7 +17,7 @@ export default function Contact(props) {
 
       <div className="w-[100%] h-[40px] flex flex-col md:flex-row items-center justify-center md:justify-between">
         <div className="md:w-[400px]">
-          <div className="flex flex-row w-fit  justify-center h-[50px] items-center gap-x-[45px]">
+          <div className="flex flex-row w-fit  justify-center h-fit items-center gap-x-[45px]">
             <div className="md:w-[25px] md:h-[25px] w-[20px] h-[20px]">
               <img className="w-[100%] h-[100%] object-cover" src={phone}></img>
             </div>
@@ -51,9 +51,9 @@ export default function Contact(props) {
           <>
             <div className="w-[100%] h-[40px] flex flex-col md:flex-row items-center juustify-center md:justify-between">
               <div className="md:w-[400px]">
-                <div className="flex flex-row w-[350px]  md:ml-[0px] ml-[125px] md:w-[300px] h-[50px] items-center gap-x-[10px]">
+                <div className="flex flex-row w-[350px]  md:ml-[0px] ml-[125px] md:w-[350px] h-[50px] items-center gap-x-[10px]">
                   <p className="text-akkar-orange text-lg md:text-xl text-left font-medium">
-                    Name of the seller :
+                    Nom du vendeur:
                   </p>
                   <p className="text-[#5F5551] text-lg md:text-xl font-medium text-left">
                     {props.nom} {props.prenom}
@@ -79,7 +79,7 @@ export default function Contact(props) {
             <button onClick={()=> setSendmessage(true)} className="cursor-pointer">
               <div className="md:mt-[0px] mt-[30px]  w-[250px] h-[40px] md:h-[60px] bg-akkar-orange-second flex flex-row items-center justify-between p-[20px]">
                 <p className="text-left text-sm md:text-lg text-akkar-orange">
-                  Contact via the app{" "}
+                  Contacter via app{" "}
                 </p>
                 <img
                   className="md:w-[45px] md:h-[45px] w-[35px] h-[35px]"

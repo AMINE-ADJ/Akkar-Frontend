@@ -9,8 +9,8 @@ export default function SearchSection() {
     <section className="w-full h-fit pt-[85px] md:pt-4" id="hero2">
       <form className="w-full h-[250px] md:h-[400px] bg-wood-bg bg-cover ">
         <div className="w-full h-[250px] md:h-[400px]  bg-filter flex flex-col justify-around items-center">
-          <h1 className="text-center text-white text-3xl md:text-5xl md:mt-[50px]">
-            Start searching a real estate
+          <h1 className="text-center text-white text-2xl md:text-5xl md:mt-[50px]">
+            Commencez à chercher des immobiliers
           </h1>
           <div
             id="searchbar"
@@ -21,7 +21,7 @@ export default function SearchSection() {
             </div>
             <input
               className="w-[400px] md:w-[780px]  h-[60px] md:h-[80px] bg-white text-2xl outline-none text-[#BE9E8C]"
-              placeholder="Search a real estate"
+              placeholder="Chercher un bien immobilier"
               onChange={(txt) => setinputText(txt.target.value)}
               onKeyDown={(e)=>{
                 if(e.keyCode==13){ document.getElementById("clickable").click()}

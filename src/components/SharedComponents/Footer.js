@@ -1,6 +1,5 @@
 import React from "react";
 import Logo from "../../assets/logoCreme.svg";
-
 export default function Footer() {
   return (
     <section
@@ -9,7 +8,7 @@ export default function Footer() {
     >
       <div className="flex gap-10 items-center text-akkar-brown-creme">
         <div className="md:text-2xl text-xl font-medium font-Inter">
-          Contact Us
+          Contactez-nous
         </div>
         <div className="flex gap-3 ">
           <a href="" target="_blank">

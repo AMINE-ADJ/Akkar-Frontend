@@ -5,11 +5,11 @@ import Logo from "../../assets/logo.svg";
 import { LogoutFunction } from "../SharedComponents/LogoutFunction";
 export default function Header() {
   let Links = [
-    { name: "Home", link: "/authenticated/" },
+    { name: "Acceuil", link: "/authenticated/" },
     // { name: "Our Services", link: "#services" },
-    { name: "Messages", link: "/authenticated/mesmessages" },
+    { name: " Mes Méssages", link: "/authenticated/mesmessages" },
     { name: "Mes Annonces", link: "/authenticated/mesannonces" },
-    { name: "Contact Us", link: "#footer" },
+    { name: "Contactez-nous", link: "#footer" },
   ];
   let [open, setOpen] = useState(false);
 
@@ -57,20 +57,20 @@ export default function Header() {
               className="bg-akkar-orange-second text-akkar-orange font-Inter md:my-0 my-2 md:py-2 py-1 md:px-4 px-2 rounded-[3px] hover:bg-akkar-orange-second hover:text-black
     duration-200"
             >
-              <ion-icon name="add-outline"></ion-icon> Post estate
+              <ion-icon name="add-outline"></ion-icon> Publier
             </button>
           </Link>
-          <Link to="/">
+          <Link to="/" >
             <button
               onClick={() => LogoutFunction()}
-              className="bg-akkar-orange-second text-red-700 font-Inter md:text-xl md:my-0 my-2 text-lg items-center md:ml-3 md:py-2 py-1  px-1 flex rounded-[3px] hover:bg-akkar-orange-second hover:text-black
+              className="bg-akkar-orange-second text-red-700 font-Inter  md:my-0 my-2  items-center md:ml-3 md:py-2 py-1  px-1 flex rounded-[3px] hover:bg-akkar-orange-second hover:text-black
     duration-200"
             >
               <ion-icon
                 size="md:large small "
                 name="log-out-outline"
               ></ion-icon>{" "}
-              LOGOUT
+              Déconnecter
             </button>
           </Link>
         </ul>
