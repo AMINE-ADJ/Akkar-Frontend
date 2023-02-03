@@ -143,7 +143,8 @@ export default function PostForm() {
       onSubmit={handleSubmit(formSubmitHandler)}
       className="w-full min-w-fit h-fit mt-[100px] flex justify-center "
     >
-      <div className="md:w-[1000px] md:h-fit flex flex-col items-center md:gap-y-[30px] p-5">
+      <div className="md:w-[1000px] md:h-fit flex flex-col items-center gap-y-[30px] p-5">
+
         <p className="text-left text-xl md:text-3xl font-normal md:mr-[620px]">
           Real estate info
         </p>

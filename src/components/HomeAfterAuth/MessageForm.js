@@ -50,7 +50,7 @@ export default function MessageForm(props) {
         {/*content*/}
         <form
           onSubmit={handleSubmit(formSubmitHandler)}
-          className=" w-[350px] rounded-lg shadow-lg relative flex flex-col gap-y-[25px]  items-center h-[600px] p-5 mt-[70px] bg-white outline-none focus:outline-none"
+          className=" w-[350px] rounded-lg shadow-lg relative flex flex-col gap-y-[20px]  items-center h-[610px] p-5 mt-[100px] xl:mt-[70px] bg-white outline-none focus:outline-none"
         >
           {/*header*/}
 
@@ -61,7 +61,7 @@ export default function MessageForm(props) {
             </div>
           </div>
           <div className="w-[350px] h-[1px] bg-[#58595B]"></div>
-          <div className="flex flex-col gap-y-[10px]">
+          <div className="flex flex-col gap-y-[20px]">
             <label>Full name</label>
             <div className="flex flex-col">
               <input
@@ -131,7 +131,7 @@ export default function MessageForm(props) {
 
           <button
             type="submit"
-            className="w-[260px] h-[30px] bg-akkar-orange text-white text-center rounded-2"
+            className="w-[260px] h-[60px] rounded-3 bg-akkar-orange text-white text-center rounded-2"
           >
             Send offer
           </button>
