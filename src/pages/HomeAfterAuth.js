@@ -11,9 +11,9 @@ export default function HomeAfterAuth() {
   console.log(user);
 
   return (
-    <div className="w-full min-w-fit h-screen">
+    <div className="w-full min-w-fit h-screen lg:overflow-auto ">
       <Header />
-      <Outlet/>
+      <Outlet />
       <Footer />
     </div>
   );
