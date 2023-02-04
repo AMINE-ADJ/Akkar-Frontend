@@ -10,7 +10,6 @@ import Wilayas from "../../data/wilayas.json";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
-import userEvent from "@testing-library/user-event";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Map from "./Map";
@@ -79,10 +78,6 @@ export default function PostForm() {
   const formSubmitHandler = (data) => {
     //data is the set of data retrived from the form it won t be sent unless the form is valid (0 error messages)
 
-    console.log("Submited !");
-    console.log("your data ", data);
-    console.log("your files to upload", selectedImages);
-    console.log(files);
     var sendData = {
       id: user.id,
       categorie: data.categorie,
@@ -104,13 +99,11 @@ export default function PostForm() {
     for (let i = 0; i < files.length; i++) {
       sendData[`${i + 1}`] = files[i].file;
     }
-    console.log(sendData);
     axios
       .post("http://127.0.0.1:8000/api/postannonce/", sendData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
-        console.log(res);
         navigate("/authenticated/mesannonces");
       })
       .catch((e) => {
@@ -137,7 +130,6 @@ export default function PostForm() {
   const inputLocation=useRef(null);
   const [Localisation,setLocalisation]=useState(false);
   const [coords,setCoords]=useState({});
-  console.log("your coords are",coords);
   return (
     <form
       onSubmit={handleSubmit(formSubmitHandler)}

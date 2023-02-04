@@ -1,7 +1,5 @@
 import React from "react";
 import MessagesContainer from "./MessagesContainer";
-// import Post from "../../Post";
-// import pic from "../../../../assets/house.svg";
 
 export default function AnnonceCardsItems({ CurrentAnnonces }) {
   return (

@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Logo from "../../assets/logo.svg";
-import { LogoutFunction } from "../SharedComponents/LogoutFunction";
+import UserCircle from "./UserCircle";
 export default function Header() {
   let Links = [
     { name: "Acceuil", link: "/authenticated/" },
-    // { name: "Our Services", link: "#services" },
     { name: " Mes Méssages", link: "/authenticated/mesmessages" },
     { name: "Mes Annonces", link: "/authenticated/mesannonces" },
     { name: "Contactez-nous", link: "#footer" },
@@ -60,19 +59,7 @@ export default function Header() {
               <ion-icon name="add-outline"></ion-icon> Publier
             </button>
           </Link>
-          <Link to="/" >
-            <button
-              onClick={() => LogoutFunction()}
-              className="bg-akkar-orange-second text-red-700 font-Inter  md:my-0 my-2  items-center md:ml-3 md:py-2 py-1  px-1 flex rounded-[3px] hover:bg-akkar-orange-second hover:text-black
-    duration-200"
-            >
-              <ion-icon
-                size="md:large small "
-                name="log-out-outline"
-              ></ion-icon>{" "}
-              Déconnecter
-            </button>
-          </Link>
+          <UserCircle/>
         </ul>
       </div>
     </div>
