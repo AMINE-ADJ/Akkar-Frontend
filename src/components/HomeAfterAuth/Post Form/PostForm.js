@@ -125,11 +125,20 @@ export default function PostForm() {
       const img = URL.createObjectURL(fl);
       return { img, index, fl };
     });
+    
     const currentFiles = filesArray.map((file, id) => {
       return { file, id };
     });
-    setSelectedImages(selectedImages.concat(imagesArray));
-    setfiles(files.concat(currentFiles));
+    if(selectedImages.length+imagesArray.length<=10){
+      setSelectedImages(selectedImages.concat(imagesArray));
+
+    }else{
+      alert("Vous ne pouvez pas ajouter plus de 10 photos")
+    }
+    if(files.length+currentFiles.length<=10){
+      setfiles(files.concat(currentFiles));
+
+    }
   };
   const inputLocation=useRef(null);
   const [Localisation,setLocalisation]=useState(false);
