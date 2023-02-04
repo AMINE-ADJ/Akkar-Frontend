@@ -1,9 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import  SearchBar from "../../HomeAfterAuth/MainAfterAuth/SearchSection/SearchSection"
-import Post from "../Post";
-// import pic from "../../assets/house.svg";
 import AnnoncesItems from "../MainAfterAuth/PublicAnnonces/AnnoncesItems";
 import ReactPaginate from "react-paginate";
 import { useMediaQuery } from "react-responsive";
@@ -15,28 +12,21 @@ export default function MesAnnonces() {
   const [totalLength, settotalLength] = useState(0);
 
   const [page, setPage] = useState(1);
-  console.log(user.id);
-  console.log("he doesn't have annonces yet! that's why = []");
+
   useEffect(() => {
     axios
       .post(`http://127.0.0.1:8000/api/mesannonces/${page}`, {
         id: user.id,
       })
       .then((res) => {
-        // console.log(res);
-        // setMesAnnonces(res.data);
-        // settotalLength(res.data[0].my_annonces);
         setMesAnnonces(res.data[1]);
         settotalLength(res.data[0].count);
-        // console.log(totalLength);
       })
       .catch((err) => {
         console.log(err);
       });
   }, [page]);
-  // console.log(MesAnnonces);
   const handlePageClick = (data) => {
-    // console.log(data.selected);
     setPage(data.selected + 1);
     window.scrollTo(0, 0);
   };

@@ -12,22 +12,14 @@ export default function AnnoncesSection() {
     axios
       .get(`http://127.0.0.1:8000/api/afficherannonces/${page}`)
       .then((res) => {
-        console.log(res.data[1]);
-        console.log(res.data[0].count);
         setAnnonces(res.data[1]);
         settotalLength(res.data[0].count);
-        // setImage(res.data[2].my_image);
       })
       .catch((error) => {
         console.error("There was an error!", error);
       });
   }, [page]);
-  // console.log(totalLength / 40);
-  // console.log(Annonces);
-  // console.log(totalLength);
-  // console.log(page);
   const handlePageClick = (data) => {
-    // console.log(data.selected);
     setPage(data.selected + 1);
     window.scrollTo(0, 420);
   };

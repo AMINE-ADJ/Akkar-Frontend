@@ -18,7 +18,6 @@ export default function MessagePage() {
         userid: user.id,
       })
       .then((res) => {
-        console.log(res.data.results);
         setAnnonceCards(res.data.results);
         settotalLength(res.data.count);
       })
@@ -27,19 +26,12 @@ export default function MessagePage() {
       });
   }, [page]);
   const handlePageClick = (data) => {
-    // console.log(data.selected);
     setPage(data.selected + 1);
     window.scrollTo(0, 0);
   };
-  console.log(AnnonceCards);
-  console.log(totalLength);
+  
   return (
     <div className="w-full  py-[100px]">
-      {/* <div className=""> */}
-      {/* <MessagesContainer id={} title={} date={}/> */}
-      {/* <MessagesContainer />
-        <MessagesContainer />
-        <MessagesContainer /> */}
       <AnnonceCardsItems CurrentAnnonces={AnnonceCards} />
       <div className="flex w-full justify-center items-center  mt-32 md:mt-6  ">
         {totalLength != 0 ? (
@@ -70,7 +62,6 @@ export default function MessagePage() {
           </>
         )}
       </div>
-      {/* </div> */}
     </div>
   );
 }

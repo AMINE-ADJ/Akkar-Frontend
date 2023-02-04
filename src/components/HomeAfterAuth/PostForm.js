@@ -10,7 +10,6 @@ import Wilayas from "../../data/wilayas.json";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
-import userEvent from "@testing-library/user-event";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Map from "./Map";
@@ -79,10 +78,6 @@ export default function PostForm() {
   const formSubmitHandler = (data) => {
     //data is the set of data retrived from the form it won t be sent unless the form is valid (0 error messages)
 
-    console.log("Submited !");
-    console.log("your data ", data);
-    console.log("your files to upload", selectedImages);
-    console.log(files);
     var sendData = {
       id: user.id,
       categorie: data.categorie,
@@ -104,13 +99,11 @@ export default function PostForm() {
     for (let i = 0; i < files.length; i++) {
       sendData[`${i + 1}`] = files[i].file;
     }
-    console.log(sendData);
     axios
       .post("http://127.0.0.1:8000/api/postannonce/", sendData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
-        console.log(res);
         navigate("/authenticated/mesannonces");
       })
       .catch((e) => {
@@ -137,7 +130,6 @@ export default function PostForm() {
   const inputLocation=useRef(null);
   const [Localisation,setLocalisation]=useState(false);
   const [coords,setCoords]=useState({});
-  console.log("your coords are",coords);
   return (
     <form
       onSubmit={handleSubmit(formSubmitHandler)}
@@ -156,9 +148,10 @@ Informations        </p>
                 className="w-[400px] h-[50px] rounded-2 p-3 border-2 border-[#ECDFD8] outline-none"
               >
                 <option value="">Type</option>
-                {Types.map((item) => {
+                {Types.map((item,i) => {
                   return (
                     <option
+                    key={i}
                       className="hover:bg-akkar-orange"
                       value={item.value}
                     >
@@ -181,9 +174,10 @@ Informations        </p>
                 className="w-[400px] h-[50px] rounded-2 p-3 border-2 border-[#ECDFD8] outline-none"
               >
                 <option value="">Catégorie</option>
-                {Categories.map((item) => {
+                {Categories.map((item,i) => {
                   return (
                     <option
+                    key={i}
                       className="hover:bg-akkar-orange"
                       value={item.value}
                     >
@@ -270,9 +264,10 @@ Informations        </p>
                 onChange={(wilaya) => handleWilaya(wilaya.target.value)}
               >
                 <option value="">Wilaya</option>
-                {Wilayas.map((wilaya) => {
+                {Wilayas.map((wilaya,i) => {
                   return (
                     <option
+                    key={i}
                       className="hover:bg-akkar-orange"
                       value={wilaya.name}
                       // onChange={()=>}
@@ -299,9 +294,10 @@ Informations        </p>
                 {Wilayas[WilayaId - 1]?.dairas.map((daira) => {
                   return (
                     <>
-                      {daira.communes?.map((commune) => {
+                      {daira.communes?.map((commune,i) => {
                         return (
                           <option
+                          key={i}
                             className="hover:bg-akkar-orange"
                             value={commune.name}
                           >
@@ -381,9 +377,9 @@ Informations        </p>
 
           {selectedImages.length <= 10 &&
             selectedImages &&
-            selectedImages.map((image) => {
+            selectedImages.map((image,i) => {
               return (
-                <div className="w-[250px] h-[350px] rounded-[5px] relative">
+                <div key={i} className="w-[250px] h-[350px] rounded-[5px] relative">
                   <div
                     onClick={() => {
                       setSelectedImages(

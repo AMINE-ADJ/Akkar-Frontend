@@ -25,8 +25,6 @@ export default function MessageForm(props) {
     resolver: yupResolver(registerSchema),
   });
   const formSubmitHandler = (data) => {
-    // console.log(data);
-    console.log(props.PostId);
     var sendData = {
       annonce: props.PostId,
       offre: data.offer,
@@ -34,11 +32,9 @@ export default function MessageForm(props) {
       nom: data.name,
       email: data.email,
     };
-    console.log(sendData);
     axios
       .post("http://127.0.0.1:8000/api/sendmessage/", sendData)
       .then((res) => {
-        console.log(res);
       })
       .catch((e) => {
         console.log(e);

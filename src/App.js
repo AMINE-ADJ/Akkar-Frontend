@@ -28,7 +28,6 @@ function App() {
         navigate("/authenticated");
       }
     }
-    console.log(user);
     dispatch(
       login({
         name: user.username,

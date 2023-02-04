@@ -5,23 +5,18 @@ import { Link } from "react-router-dom";
 import { LogoutFunction } from "../components/SharedComponents/LogoutFunction";
 
 export default function Admin() {
-  // const user = useSelector((state) => state.user.value);
-  // console.log("from Admin : ");
-  // console.log(user);
   const [ScrapingTime, setScrapingTime] = useState(2);
   const [StartTimer, setStartTimer] = useState(false);
   const [ScrapingTimeMs, setScrapingTimeMs] = useState(ScrapingTime * 60 + 15);
   const [Success, setSuccess] = useState(false);
   const lancerWebScraping = () => {
     setSuccess(false);
-    console.log(`tlancat....! avec ${ScrapingTime} `);
     setStartTimer(true);
     axios
       .post("http://127.0.0.1:8000/api/lancerwebscraping/", {
         scrapingtime: `${ScrapingTime} `,
       })
       .then((res) => {
-        console.log(res);
         setStartTimer(false);
       })
       .catch((error) => {
@@ -40,7 +35,6 @@ export default function Admin() {
       setScrapingTimeMs(ScrapingTimeMs - nbr * 60);
     }
   };
-  // console.log(Success);
   return (
     <div className="bg-akkar-orange-second pt-10 flex flex-col items-center gap-10 justify-start h-screen w-full font-akkar-bold text-akkar-black">
       <h1 className="text-5xl">Welcome to Admin Page!</h1>
