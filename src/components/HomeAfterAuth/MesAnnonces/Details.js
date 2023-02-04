@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../../SharedComponents/Footer";
-import Description from "../Description";
-import PhotosSection from "../PhotosSection";
-import Header from "../Header";
-import InfosSection from "../InfosSection";
-import ContactSection from "../ContactSection";
-import picture from "../../../assets/picture.svg";
+import Description from "../Details components/Description";
+import PhotosSection from "../Details components/PhotosSection";
+import InfosSection from "../Details components/InfosSection";
+import ContactSection from "../Details components/ContactSection";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import DeleteConfirModal from "./DeleteConfirmModel";
 

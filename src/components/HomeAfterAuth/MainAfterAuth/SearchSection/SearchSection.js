@@ -10,7 +10,7 @@ export default function SearchSection() {
       <form className="w-full h-[250px] md:h-[400px] bg-wood-bg bg-cover ">
         <div className="w-full h-[250px] md:h-[400px]  bg-filter flex flex-col justify-around items-center">
           <h1 className="text-center text-white text-2xl md:text-5xl md:mt-[50px]">
-            Commencez à chercher des immobiliers
+            Commencez à chercher des biens immobiliers
           </h1>
           <div
             id="searchbar"
@@ -20,21 +20,28 @@ export default function SearchSection() {
               <img src={search} className="w-[50%] h-[50%]"></img>
             </div>
             <input
+            maxLength={45}
               className="w-[400px] md:w-[780px]  h-[60px] md:h-[80px] bg-white text-2xl outline-none text-[#BE9E8C]"
               placeholder="Chercher un bien immobilier"
-              onChange={(txt) => setinputText(txt.target.value)}
+              onChange={(txt) => {
+                setinputText(txt.target.value)}}
               onKeyDown={(e)=>{
                 if(e.keyCode==13){ document.getElementById("clickable").click()}
               }
               }
             ></input>
-            <Link  to={`/authenticated/search/${inpuText}`}>
+          {inpuText.length>0 ? <Link  to={`/authenticated/search/${inpuText}`}>
               <button id="clickable"  >
                 <div className=" w-[50px] md:w-[100px]  h-[60px] md:h-[80px] bg-akkar-orange flex justify-center items-center rounded-r-[6px] text-center text-xl md:text-2xl text-white">
                   GO
                 </div>
               </button>
-            </Link>
+            </Link>  :  <button id="clickable"  >
+                <div className=" w-[50px] md:w-[100px]  h-[60px] md:h-[80px] bg-akkar-orange flex justify-center items-center rounded-r-[6px] text-center text-xl md:text-2xl text-white">
+                  GO
+                </div>
+              </button>}  
+           
           </div>
 
           <div

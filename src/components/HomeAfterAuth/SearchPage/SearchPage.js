@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import Post from "../Post";
+import Post from "../Shared Components/Post";
 // import pic from "../../assets/house.svg";
 import AnnoncesItems from "../MainAfterAuth/PublicAnnonces/AnnoncesItems";
 import ReactPaginate from "react-paginate";
@@ -71,9 +71,8 @@ export default function SearchPage() {
 
   //define the rules of each field
   const registerSchema = yup.object().shape({
-    SearchText: yup.string().required("Type is required"),
+    SearchText: yup.string().required("Ce champs est obligatoire"),
     type: yup.string(),
-
     wilaya: yup.string(),
     commune: yup.string(),
     fromDate: yup.string(),
@@ -158,19 +157,31 @@ export default function SearchPage() {
     <div className="bg-white  w-full pt-32 flex flex-col items-center pb-10">
       <form onSubmit={handleSubmit(formSubmitHandler)}>
         <div className="flex flex-col justify-center items-center md:items-start gap-5">
+          
+          <div className="flex flex-col">
           <div className=" w-[300px] sm:w-[400px] md:w-[915px] h-[50px] flex flex-row gap-12 items-center p-5 border-2 border-[#ECDFD8] rounded-2">
-            <input
+           <input
               {...register("SearchText")}
+              maxLength={45}
               className=" w-[300px] sm:w-[370px] md:w-[790px] h-[45px] rounded-2 p-4  outline-none"
               type="text"
               name="SearchText"
               defaultValue={inpuText}
               placeholder="Search for a real estate"
             ></input>
+            
+           
             <div className=" w-[22px] h-[22px] md:w-[25px]  md:h-[25px]   flex items-center justify-center">
               <img className="md:w-[100%] md:h-[100%] " src={search}></img>
             </div>
           </div>
+          {errors.SearchText ? (
+                <div className="text-sm text-akkar-orange text-left mt-[0px]  ">
+                  {errors.SearchText.message}
+                </div>
+              ) : null}
+          </div>
+         
           <div className="flex gap-3 items-center">
             <img className="" src={filterIcon}></img>
             <p className="text-xl font-Inter text-akkar-orange font-akkar-bold ">
@@ -198,7 +209,7 @@ export default function SearchPage() {
                 })}
               </select>
               {errors.type ? (
-                <div className="text-sm text-akkar-orange text-left absolute  mt-[50px]">
+                <div className="text-sm text-akkar-orange text-left   mt-[50px]">
                   {" "}
                   {errors.type.message}
                 </div>
@@ -224,7 +235,7 @@ export default function SearchPage() {
                 })}
               </select>
               {errors.wilaya ? (
-                <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+                <div className="text-sm text-akkar-orange text-left  mt-[50px]">
                   {" "}
                   {errors.wilaya.message}
                 </div>
@@ -288,7 +299,7 @@ export default function SearchPage() {
                 </div>
               ) : null}
               {isErreur ? (
-                <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+                <div className="text-sm text-akkar-orange text-left  mt-[0px]">
                   {"Date invalide"}
                 </div>
               ) : null}
@@ -311,7 +322,7 @@ export default function SearchPage() {
                 disabled={isDisabled}
               ></input>
               {errors.toDate ? (
-                <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+                <div className="text-sm text-akkar-orange text-left  mt-[0px]">
                   {errors.toDate.message}
                 </div>
               ) : null}
@@ -327,7 +338,7 @@ export default function SearchPage() {
           </div>
 
           <p className="flex justify-center mt-10 text-3xl font-akkar-bold text-akkar-black font-Inter">
-            Search Results
+            Résultat de recherche
           </p>
         </div>
       </form>
@@ -365,7 +376,7 @@ export default function SearchPage() {
           <>
             <div className="h-screen w-full bg-akkar-orange-second flex justify-center items-center">
               <p className="text-5xl text-akkar-black ">
-                No real estates found !
+                Pas de résultats trouvés
               </p>
             </div>
           </>

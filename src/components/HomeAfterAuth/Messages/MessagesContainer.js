@@ -24,7 +24,7 @@ export default function MessagesContainer(props) {
                 customer={message.nom}
                 time={message.date.slice(0, 10)}
                 telephone={message.telephone}
-                email={message.offre}
+                email={message.email}
                 offre={message.offre}
               />
             );

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { LogoutFunction } from "../SharedComponents/LogoutFunction";
+import { LogoutFunction } from "../../SharedComponents/LogoutFunction";
 
 const UserCircle = () => {
   const user = useSelector((state) => state.user.value);
@@ -49,7 +49,7 @@ const UserCircle = () => {
             <hr className="border-akkar-black" />
             <div className="py-2 pr-16 pl-2 font-Inter">
               {" "}
-              <span className="font-bold"> Votre email </span> : {user.email}
+              <span className="font-bold">Email </span> : {user.email}
             </div>
             <hr className="border-akkar-black" />
             <Link to="/">

@@ -1,14 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 
 import { MapContainer, TileLayer,Marker } from 'react-leaflet'
-import L, { map, marker } from "leaflet"
+import L from "leaflet"
 
-export default function Map(props){ //props are a table [lat,lng]
+export default function Map(props){ 
    
       const position=props.position;
         
         let DefaultIcon = L.icon({
-          iconUrl: require("../../assets/marker.svg").default,
+          iconUrl: require("../../../assets/marker.svg").default,
           iconSize: [25, 41],
           iconAnchor: [10, 41],
           popupAnchor: [2, -40],

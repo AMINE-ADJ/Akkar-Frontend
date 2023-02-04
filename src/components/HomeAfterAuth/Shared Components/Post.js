@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import localisation from "../../assets/Localisation.svg";
-import clock from "../../assets/clock.svg";
-import send from "../../assets/Send.svg";
-import arrows from "../../assets/Arrows.svg";
-import MessageForm from "./MessageForm";
-
+import localisation from "../../../assets/Localisation.svg";
+import clock from "../../../assets/clock.svg";
+import send from "../../../assets/Send.svg";
+import arrows from "../../../assets/Arrows.svg";
+import MessageForm from "../Messages Form/MessageForm";
 import { Link } from "react-router-dom";
 export default function Post(props) {
   const [sendMessage, setSendMessage] = useState(false);
   return (
-    //
+
     <div className=" text-[16px] sm:text-[18px] md:text-[19px] xl:text-[21px] items-center m-6 flex flex-col justify-between  w-[82%] md:w-[80%] xl:w-[80%] h-[370px] rounded-[7px] border-2 border-[#E7E9EB] cursor-pointer">
       <Link className="w-full" to={`/authenticated/detailes/${props.Postid}`}>
        <div className=" flex justify-center w-[100.5%] h-[170px] rounded-[7px] ">
@@ -61,6 +60,5 @@ export default function Post(props) {
       </div>
       {sendMessage ? <MessageForm PostId={props.Postid} set={setSendMessage}></MessageForm> : null}
     </div>
-    // </Link>
   );
 }

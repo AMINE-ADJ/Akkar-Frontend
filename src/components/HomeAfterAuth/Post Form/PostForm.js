@@ -1,12 +1,12 @@
 import React, { useState,useRef } from "react";
-import adress from "../../assets/adresse-bien.svg";
-import galery from "../../assets/galery.svg";
-import exit from "../../assets/exit.svg";
-import tel from "../../assets/telephone.svg";
-import mail from "../../assets/@.svg";
+import adress from "../../../assets/adresse-bien.svg";
+import galery from "../../../assets/galery.svg";
+import exit from "../../../assets/exit.svg";
+import tel from "../../../assets/telephone.svg";
+import mail from "../../../assets/@.svg";
 
 import { useForm } from "react-hook-form";
-import Wilayas from "../../data/wilayas.json";
+import Wilayas from "../../../data/wilayas.json";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
@@ -31,8 +31,8 @@ export default function PostForm() {
   const registerSchema = yup.object().shape({
     type: yup.string().required("Le type est oblogatoire"),
     categorie: yup.string().required("La catégorie est oblogatoire"),
-    surface: yup.string().required("La surface est oblogatoire").min(2),
-    prix: yup.string().required("Le prix est oblogatoire").min(7),
+    surface: yup.string().required("La surface est oblogatoire").min(1),
+    prix: yup.string().required("Le prix est oblogatoire").min(4),
     wilaya: yup.string().required("La wilaya est oblogatoire"),
     commune: yup.string().required("La commune est oblogatoire"),
     nom: yup.string().required("Le nom est oblogatoire"),
@@ -117,6 +117,10 @@ export default function PostForm() {
   const selectImage = (e) => {
     const f = e.target.files;
     const filesArray = Array.from(f);
+    if(filesArray.length>10){
+      alert("Vous ne pouvez pas ajouter plus de 10 photos");
+      return;
+    }
     const imagesArray = filesArray.map((fl, index) => {
       const img = URL.createObjectURL(fl);
       return { img, index, fl };
@@ -133,6 +137,7 @@ export default function PostForm() {
   return (
     <form
       onSubmit={handleSubmit(formSubmitHandler)}
+      autoComplete="off"
       className="w-full min-w-fit h-fit mt-[100px] flex justify-center "
     >
       <div className="md:w-[1000px] md:h-fit flex flex-col items-center gap-y-[30px] p-5">
@@ -344,7 +349,7 @@ Informations        </p>
             ) : null}
           </div>
         </div>
-        <p className="text-left text-xl md:text-3xl font-normal md:mr-[620px]">
+        <p className="text-left text-xl md:text-3xl font-normal md:mr-[530px]">
           Ajouter des photos
         </p>
         <div
@@ -362,7 +367,7 @@ Informations        </p>
               for="input"
               className="text-lg text-[#B3A39B] text-center m-5 cursor-pointer"
             >
-              Vous pouvez ajouter jusau'à 10 photos
+              Vous pouvez ajouter jusqu'à 10 photos
             </label>
             <input
               type="file"
@@ -403,13 +408,8 @@ Informations        </p>
               );
             })}
         </div>
-        {selectedImages.length > 10 ? (
-          <div className="text-center text-xl text-akkar-orange">
-            {" "}
-            Vous ne pouvez pas ajouter plus de 10 photos,réessayez  {" "}
-          </div>
-        ) : null}
-        <p className="text-left text-xl md:text-3xl font-normal md:mr-[620px]">
+       
+        <p className="text-left text-xl md:text-3xl font-normal md:mr-[670px]">
           Contact
         </p>
         <div className="w-full flex flex-col md:flex-row items-center justify-center gap-y-[25px] md:gap-x-[25px]">
