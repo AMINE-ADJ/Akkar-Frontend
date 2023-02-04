@@ -2,6 +2,7 @@
   "name": "akkar-frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8000",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@hookform/resolvers": "^2.9.10",
