@@ -1,11 +1,9 @@
 import React ,{useState} from "react";
-import phone from "../../assets/phone.svg";
-import mail from "../../assets/mail.svg";
-import adress from "../../assets/adress.svg";
-import message from "../../assets/Send.svg";
-import { Link } from "react-router-dom";
-import MessageForm from "./MessageForm";
-
+import phone from "../../../assets/phone.svg";
+import mail from "../../../assets/mail.svg";
+import adress from "../../../assets/adress.svg";
+import message from "../../../assets/Send.svg";
+import MessageForm from "../Messages Form/MessageForm";
 export default function Contact(props) {
   // const isWebScraping = false;
   const isWebScraping = props.isWebScraping;

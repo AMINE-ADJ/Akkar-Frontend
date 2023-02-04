@@ -1,7 +1,7 @@
 import React from "react";
-import close from "../../assets/Close.svg";
-import phone from "../../assets/telephone.svg";
-import mail from "../../assets/@.svg";
+import close from "../../../assets/Close.svg";
+import phone from "../../../assets/telephone.svg";
+import mail from "../../../assets/@.svg";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -47,7 +47,9 @@ export default function MessageForm(props) {
         {/*content*/}
         <form
           onSubmit={handleSubmit(formSubmitHandler)}
-          className=" w-[350px] rounded-lg shadow-lg relative flex flex-col gap-y-[20px]  items-center h-[610px] p-5 mt-[100px] xl:mt-[70px] bg-white outline-none focus:outline-none"
+          autoComplete="off"
+
+          className=" text-lg  w-[350px] rounded-lg shadow-lg relative flex flex-col xl:gap-y-[20px] gap-y-[14px] items-center h-[520px] xl:h-[580px] p-5 mt-[80px] xl:mt-[70px] bg-white outline-none focus:outline-none"
         >
           {/*header*/}
 
@@ -58,16 +60,17 @@ export default function MessageForm(props) {
             </div>
           </div>
           <div className="w-[350px] h-[1px] bg-[#58595B]"></div>
-          <div className="flex flex-col gap-y-[7px]">
+          <div className="flex flex-col gap-y-[7px] mt-[-18px]">
             <label>Nom et prénom</label>
             <div className="flex flex-col">
               <input
-                className=" px-2 w-[260px] h-[35px] border-2 border-[#ECDFD8] outline-none"
+              
+                className=" text-sm px-2 w-[260px] h-[35px] border-2 border-[#ECDFD8] outline-none"
                 name="name"
                 {...register("name")}
               ></input>
               {errors.name ? (
-                <div className="text-sm text-akkar-orange text-left absolute  mt-[35px]">
+                <div className="md:text-sm text-akkar-orange text-left absolute  mt-[35px]">
                   {" "}
                   {errors.name.message}
                 </div>

@@ -57,7 +57,7 @@ export default function MessagePage() {
         ) : (
           <>
             <div className="h-screen w-full bg-akkar-orange-second flex justify-center items-center">
-              <p className="text-5xl text-akkar-black ">You didn't post yet!</p>
+              <p className="text-5xl text-akkar-black ">Vous n'avez pas encore publier</p>
             </div>
           </>
         )}

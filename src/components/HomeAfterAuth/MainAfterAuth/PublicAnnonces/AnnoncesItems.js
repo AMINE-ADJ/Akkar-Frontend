@@ -1,5 +1,5 @@
 import React from "react";
-import Post from "../../Post";
+import Post from "../../Shared Components/Post";
 import pic from "../../../../assets/house.svg";
 import { useSelector } from "react-redux";
 

@@ -4,7 +4,7 @@ import HomeBeforeAuth from "./pages/HomeBeforeAuth";
 import HomeAfterAuth from "./pages/HomeAfterAuth";
 import Details from "./components/HomeAfterAuth/MesAnnonces/Details";
 import Admin from "./pages/Admin";
-import PostForm from "./components/HomeAfterAuth/PostForm";
+import PostForm from "./components/HomeAfterAuth/Post Form/PostForm";
 import ProtectedAuthRoute from "./components/SharedComponents/ProtectionRoutes/ProtectedAuthRoute";
 import UserProtectedRoute from "./components/SharedComponents/ProtectionRoutes/UserProtectedRoute";
 import AdminProtectedRoute from "./components/SharedComponents/ProtectionRoutes/AdminProtectedRoute";

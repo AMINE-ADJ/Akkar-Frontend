@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import Logo from "../../assets/logo.svg";
+import Logo from "../../../assets/logo.svg";
 import UserCircle from "./UserCircle";
 export default function Header() {
   let Links = [
@@ -16,7 +16,7 @@ export default function Header() {
     <div className="shadow-md shadow-akkar-orange w-full md:sticky fixed top-0 left-0  z-100">
       <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7">
         <div>
-          <HashLink smooth to={"/authenticated/"}>
+          <HashLink smooth to={"/authenticated/#hero2"}>
             <img
               className="w-[150px] h-16 lg:pb-2 md:mx-10 md:pr-10"
               src={Logo}
@@ -59,7 +59,7 @@ export default function Header() {
               <ion-icon name="add-outline"></ion-icon> Publier
             </button>
           </Link>
-          <UserCircle/>
+          <UserCircle />
         </ul>
       </div>
     </div>

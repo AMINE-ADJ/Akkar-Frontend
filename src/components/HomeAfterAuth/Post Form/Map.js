@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 
 import { MapContainer, TileLayer, useMapEvents,Marker,Popup } from 'react-leaflet'
-import L, { map, marker } from "leaflet"
+import L from "leaflet"
 import "leaflet-control-geocoder/dist/Control.Geocoder.css"
 import "leaflet-control-geocoder/dist/Control.Geocoder.js";
-import GeocoderLeaflet from "./Geocoder";
+import GeocoderLeaflet from "../Shared Components/Geocoder";
 
 export default function Map(props){
     const [position, setPosition] = useState(null);
@@ -29,7 +29,7 @@ export default function Map(props){
       const positions=[36.7762, 3.05997];
         
         let DefaultIcon = L.icon({
-          iconUrl: require("../../assets/marker.svg").default,
+          iconUrl: require("../../../assets/marker.svg").default,
           iconSize: [25, 41],
           iconAnchor: [10, 41],
           popupAnchor: [2, -40],
@@ -53,7 +53,7 @@ export default function Map(props){
       <button onClick={()=>{props.set(false);
       console.log(props.data);
           props.dataSet("localisation",`${position.lat},${position.lng}`);
-    }} className=" z-50 w-[200px] h-[50px] bg-akkar-orange text-center text-xl text-white">Confirm</button>
+    }} className=" z-50 w-[200px] h-[50px] bg-akkar-orange text-center text-xl text-white">Confirmer</button>
 
         </div>
    </div>
