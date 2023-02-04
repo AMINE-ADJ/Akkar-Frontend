@@ -1,6 +1,4 @@
 import React from "react";
-import amine from "../../../assets/amine.svg";
-import fouad from "../../../assets/fouad.svg"
 import facebook from "../../../assets/facebook.svg"
 import linkedin from "../../../assets/linkedin.svg"
 import github from "../../../assets/github.svg"
@@ -10,7 +8,7 @@ export default function card(props) {
         <div className=" w-[300px] md:w-[340px] h-[380px] md:h-[500px] bg-white rounded-[3px] flex flex-col  items-center border-2 border-akkar-brown-second">
        <div className="h-[125px] w-[125px] md:h-[160px] md:w-[160px] rounded-[50%] md:mt-[60px] mt-[30px] bg-white flex flex-row justify-center items-center border-[3.5px] md:border-[4px] border-l-akkar-orange border-b-akkar-orange border-r-white border-t-white">
         <div className=" h-[110px] w-[110px] md:h-[140px] md:w-[140px] rounded-[50%]">
-            <img src={amine} className="w-[100%] h-[100%] rounded-[50%] object-cover"></img>
+            <img src={props.img} className="w-[100%] h-[100%] rounded-[50%] object-cover"></img>
         </div>
        </div>
 
