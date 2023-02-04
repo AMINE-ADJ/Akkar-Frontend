@@ -155,7 +155,7 @@ export default function SearchPage() {
   
   return (
     <div className="bg-white  w-full pt-32 flex flex-col items-center pb-10">
-      <form onSubmit={handleSubmit(formSubmitHandler)}>
+      <form onSubmit={handleSubmit(formSubmitHandler)} autoComplete="off">
         <div className="flex flex-col justify-center items-center md:items-start gap-5">
           
           <div className="flex flex-col">
