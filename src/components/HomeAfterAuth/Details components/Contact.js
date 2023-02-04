@@ -74,6 +74,7 @@ export default function Contact(props) {
               </div>
             </div>
             <div className="flex flex-row gap-96  items-baseline">
+              
             <button onClick={()=> setSendmessage(true)} className="cursor-pointer">
               <div className="md:mt-[0px] mt-[30px]  w-[250px] h-[40px] md:h-[60px] bg-akkar-orange-second flex flex-row items-center justify-between p-[20px]">
                 <p className="text-left text-sm md:text-lg text-akkar-orange">
@@ -92,7 +93,6 @@ export default function Contact(props) {
           </>
           
         )}
-         {console.log(sendmessage)}
              {
              sendmessage ? (
          <MessageForm set={setSendmessage}></MessageForm>

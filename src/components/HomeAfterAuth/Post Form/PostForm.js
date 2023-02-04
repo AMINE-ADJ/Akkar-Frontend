@@ -514,6 +514,7 @@ Informations        </p>
         </div>
 
         <button
+          name="submit"
           type="submit"
           className="  w-[200px] h-[50px] md:w-[300px] md:h-[60px] bg-akkar-orange text-white   text-xl md:text-[28px]"
         >

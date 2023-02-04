@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../../SharedComponents/Footer";
 import Description from "../Details components/Description";
 import PhotosSection from "../Details components/PhotosSection";
 import InfosSection from "../Details components/InfosSection";
@@ -14,40 +13,21 @@ export default function Details() {
 
   const [Annonce, setAnnonce] = useState(null);
   const PostId = useParams();
-  console.log(PostId);
+  
   useEffect(() => {
     axios
       .get(`http://127.0.0.1:8000/api/detailannonce/${PostId.id}`)
       .then((res) => {
-        console.log(res);
+        
         setAnnonce(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-  console.log(Annonce);
+  
 
-  // const DeleteAnnonce = () => {
-  //   axios
-  //     .delete(`http://127.0.0.1:8000/api/supprimerannonce/${PostId.id}`)
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-  // let data = [
-  //   picture,
-  //   picture,
-  //   picture,
-  //   picture,
-  //   picture,
-  //   picture,
-  //   picture,
-  //   picture,
-  // ];
+ 
   return (
     <div className="w-full min-w-fit ">
       {Annonce && (

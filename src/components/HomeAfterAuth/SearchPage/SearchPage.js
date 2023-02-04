@@ -6,30 +6,22 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import Post from "../Shared Components/Post";
-// import pic from "../../assets/house.svg";
 import AnnoncesItems from "../MainAfterAuth/PublicAnnonces/AnnoncesItems";
 import ReactPaginate from "react-paginate";
 import { useParams } from "react-router-dom";
 
 export default function SearchPage() {
   const SearchText = useParams();
-  //   console.log(SearchText);
   const [inpuText, setinputText] = useState(SearchText.params);
   const [Wilaya, setWilaya] = useState("");
   const [WilayaId, setWilayaId] = useState(0);
   const [isErreur, setisErreur] = useState(false);
-  //   const user = useSelector((state) => state.user.value);
   const [MesAnnonces, setMesAnnonces] = useState([]);
   const [totalLength, settotalLength] = useState(0);
 
   const [page, setPage] = useState(1);
-  //   console.log(user.id);
-  //   console.log("he doesn't have annonces yet! that's why = []");
-  // console.log(inpuText);
+  
   useEffect(() => {
-    console.log("In use effect");
     axios
       .post(`http://127.0.0.1:8000/api/filterannonce/${page}`, {
         param: inpuText,
@@ -40,9 +32,7 @@ export default function SearchPage() {
         oldestdate: "",
       })
       .then((res) => {
-        console.log(res);
-        // setMesAnnonces(res.data);
-        // settotalLength(res.data[0].my_annonces);
+        
         setMesAnnonces(res.data[1]);
         settotalLength(res.data[0].count);
       })
@@ -51,12 +41,9 @@ export default function SearchPage() {
       });
   }, [page]);
 
-  // console.log(totalLength / 40);
-  // console.log(MesAnnonces);
 
-  // console.log(MesAnnonces);
+
   const handlePageClick = (data) => {
-    // console.log(data.selected);
     setPage(data.selected + 1);
     window.scrollTo(0, 0);
   };
@@ -116,7 +103,6 @@ export default function SearchPage() {
     var d1 = Date.parse(data.toDate);
     var d2 = Date.parse(data.fromDate);
     if (d1 < d2) {
-      // alert("Error!");
       console.log("erreur logique!");
       setisErreur(true);
     } else {
@@ -133,13 +119,10 @@ export default function SearchPage() {
           oldestdate: data.fromDate,
         })
         .then((res) => {
-          console.log(res);
-          // setMesAnnonces(res.data);
-          // console.log(res.data.length);
-          // settotalLength(res.data.length);
+          
           setMesAnnonces(res.data[1]);
           settotalLength(res.data[0].count);
-          // settotalLength(res.data[0].my_annonces);
+          
         })
         .catch((err) => {
           console.log(err);
@@ -148,7 +131,6 @@ export default function SearchPage() {
     //traitement.
   };
   const [isDisabled, setIsDisabled] = useState(true);
-  console.log(isDisabled);
   const [fromdate, setfromdate] = useState();
   const [todate, settodate] = useState();
 
@@ -197,9 +179,10 @@ export default function SearchPage() {
                 className="w-[300px] h-[50px] rounded-2 p-3 border-2 border-[#ECDFD8] outline-none"
               >
                 <option value="">Type</option>
-                {Types.map((item) => {
+                {Types.map((item,i) => {
                   return (
                     <option
+                      key={i}
                       className="hover:bg-akkar-orange"
                       value={item.value}
                     >
@@ -223,9 +206,10 @@ export default function SearchPage() {
                 onChange={(wilaya) => handleWilaya(wilaya.target.value)}
               >
                 <option value="">Wilaya</option>
-                {Wilayas.map((wilaya) => {
+                {Wilayas.map((wilaya,i) => {
                   return (
                     <option
+                    key={i}
                       className="hover:bg-akkar-orange"
                       value={wilaya.name}
                     >
@@ -251,9 +235,10 @@ export default function SearchPage() {
                 {Wilayas[WilayaId - 1]?.dairas.map((daira) => {
                   return (
                     <>
-                      {daira.communes?.map((commune) => {
+                      {daira.communes?.map((commune,i) => {
                         return (
                           <option
+                          key={i}
                             className="hover:bg-akkar-orange"
                             value={commune.name}
                           >

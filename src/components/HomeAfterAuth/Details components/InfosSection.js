@@ -2,25 +2,13 @@ import React, { useState,useEffect } from "react";
 import Info from "./Info";
 import Map from "./MapDetails";
 export default function InfosSection(props) {
-  //   let data={
-  //     id:"123697",
-  //     date:"08/12/2023",
-  //     price:"500000",
-  //     area:"200",
-  //     cat:"sell",
-  //     type:"house",
-  //     localisation:"medea , elguelb elkbir "
-  // }
+  
   let data = props.InfoAnnonce;
   const isWebScraping = props.isWebScraping;
-  console.log(isWebScraping);
-  console.log(data);
   let  position = [
     parseFloat(data.my_localisation.latitude),
     parseFloat(data.my_localisation.longitude),
   ];
-  const pos=[];
-  console.log(position);
    const [webScrapingCoords,setWebScrapingCoords]=useState(null);
 
    var url = "https://geocode.maps.co/search?q="+`${data.my_localisation.wilaya}`;
@@ -36,7 +24,6 @@ export default function InfosSection(props) {
      }
   }, []);
 
-      console.log(webScrapingCoords);
 
   
 

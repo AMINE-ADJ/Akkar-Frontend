@@ -1,12 +1,7 @@
 import {React ,useState} from "react";
 import Contact from "./Contact";
 export default function ContactSection(props) {
-//   let  data={
-//     number:"0667835649",
-//     name:"Khelil Fouad",
-//     mail:"www.fouadkhelil@gmail.com",
-//     address:"Medea , elguelb elkbir",
-// };
+
 let data = props.InfoContact
 const isWebScraping  = props.isWebScraping;
     return (
