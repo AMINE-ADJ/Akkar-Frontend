@@ -23,13 +23,18 @@ export default function SearchSection() {
               className="w-[400px] md:w-[780px]  h-[60px] md:h-[80px] bg-white text-2xl outline-none text-[#BE9E8C]"
               placeholder="Chercher un bien immobilier"
               onChange={(txt) => setinputText(txt.target.value)}
-              onKeyDown={(e)=>{
-                if(e.keyCode==13){ document.getElementById("clickable").click()}
-              }
-              }
+              onKeyDown={(e) => {
+                if (e.keyCode == 13) {
+                  document.getElementById("clickable").click();
+                }
+              }}
             ></input>
-            <Link  to={`/authenticated/search/${inpuText}`}>
-              <button id="clickable"  >
+            <Link
+              to={`/authenticated/search/${
+                inpuText.length > 0 ? inpuText : ""
+              }`}
+            >
+              <button id="clickable">
                 <div className=" w-[50px] md:w-[100px]  h-[60px] md:h-[80px] bg-akkar-orange flex justify-center items-center rounded-r-[6px] text-center text-xl md:text-2xl text-white">
                   GO
                 </div>
@@ -40,8 +45,7 @@ export default function SearchSection() {
           <div
             id="checkboxes-container"
             className="flex flex-row justify-start gap-x-12 w-[500px] md:w-[980px] ml-[60px] mb-[70px]"
-          >
-          </div>
+          ></div>
         </div>
       </form>
     </section>
