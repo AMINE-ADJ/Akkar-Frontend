@@ -73,4 +73,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 * type the following commande in the terminal on the folder Akkar-Frontend/ :
  "python test_selinium.py", 
- if that does not work try python3.
+ if that does not work try python3 instead of python.
