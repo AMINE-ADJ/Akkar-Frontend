@@ -46,7 +46,8 @@ export default function Post(props) {
       </Link>
 
       <div className="flex flex-row flex-wrap justify-between p-5 items-center w-full md:mt-[10px]">
-        <p className="md:text-lg text-[15px] text-left text-akkar-orange font-medium ">{props.price} DA</p>
+        <p className="md:text-lg text-[15px] text-left text-akkar-orange font-medium ">{props.price} 
+        DA</p>
 
         <>
           {!props.isWebScraping && (

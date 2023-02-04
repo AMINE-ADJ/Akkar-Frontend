@@ -30,21 +30,21 @@ export default function PostForm() {
 
   //define the rules of each field
   const registerSchema = yup.object().shape({
-    type: yup.string().required("Type is required"),
-    categorie: yup.string().required("Category is required"),
-    surface: yup.string().required("Area is required").min(2),
-    prix: yup.string().required("Price is required").min(7),
-    wilaya: yup.string().required("Wilaya is required"),
-    commune: yup.string().required("Commune is required"),
-    nom: yup.string().required("Family name is required"),
-    prenom: yup.string().required("First name is required"),
-    localisation: yup.string().required("Localisation is required"),
+    type: yup.string().required("Le type est oblogatoire"),
+    categorie: yup.string().required("La catégorie est oblogatoire"),
+    surface: yup.string().required("La surface est oblogatoire").min(2),
+    prix: yup.string().required("Le prix est oblogatoire").min(7),
+    wilaya: yup.string().required("La wilaya est oblogatoire"),
+    commune: yup.string().required("La commune est oblogatoire"),
+    nom: yup.string().required("Le nom est oblogatoire"),
+    prenom: yup.string().required("Le prénom est oblogatoire"),
+    localisation: yup.string().required("La localisation est oblogatoire"),
     email: yup
       .string()
-      .email("Invalid email format")
-      .required("Email is required"),
-    telephone: yup.string().required("Telephone is required").min(8),
-    adresseannonceur: yup.string().required("Adress is required"),
+      .email("Format invalide")
+      .required("L'Email est oblogatoire"),
+    telephone: yup.string().required("Le numéro de téléphone est obligatoire").min(8),
+    adresseannonceur: yup.string().required("L'adresse est obligatoire"),
     description: yup.string().max(511),
     //we will add more rules when adding the photos section and the contact infos section
   });
@@ -143,10 +143,10 @@ export default function PostForm() {
       onSubmit={handleSubmit(formSubmitHandler)}
       className="w-full min-w-fit h-fit mt-[100px] flex justify-center "
     >
-      <div className="md:w-[1000px] md:h-fit flex flex-col items-center md:gap-y-[30px] p-5">
+      <div className="md:w-[1000px] md:h-fit flex flex-col items-center gap-y-[30px] p-5">
+
         <p className="text-left text-xl md:text-3xl font-normal md:mr-[620px]">
-          Real estate info
-        </p>
+Informations        </p>
         <div className="w-full h-fit flex flex-col items-center justify-center gap-y-[50px]">
           <div className="w-full flex flex-col md:flex-row items-center justify-center gap-y-[25px] md:gap-x-[20px]">
             <div className="flex flex-col">
@@ -168,7 +168,7 @@ export default function PostForm() {
                 })}
               </select>
               {errors.type ? (
-                <div className="text-sm text-akkar-orange text-left absolute  mt-[50px]">
+                <div className="text-sm text-akkar-orange text-left   mt-[0px]">
                   {" "}
                   {errors.type.message}
                 </div>
@@ -180,7 +180,7 @@ export default function PostForm() {
                 name="categorie"
                 className="w-[400px] h-[50px] rounded-2 p-3 border-2 border-[#ECDFD8] outline-none"
               >
-                <option value="">Category</option>
+                <option value="">Catégorie</option>
                 {Categories.map((item) => {
                   return (
                     <option
@@ -194,7 +194,7 @@ export default function PostForm() {
               </select>
 
               {errors.categorie ? (
-                <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+                <div className="text-sm text-akkar-orange text-left  mt-[0px]">
                   {" "}
                   {errors.categorie.message}
                 </div>
@@ -209,7 +209,7 @@ export default function PostForm() {
                   className="w-[330px] h-[45px] rounded-2 p-5  outline-none"
                   type="number"
                   name="surface"
-                  placeholder="Area"
+                  placeholder="Surface"
                 ></input>
 
                 <div className="md:w-[50px]  md:h-[50px]  text-center flex items-center justify-center">
@@ -217,7 +217,7 @@ export default function PostForm() {
                 </div>
               </div>
               {errors.surface ? (
-                <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+                <div className="text-sm text-akkar-orange text-left  mt-[0px]">
                   {" "}
                   {errors.surface.message}
                 </div>
@@ -230,7 +230,7 @@ export default function PostForm() {
                   className="w-[330px] h-[45px] rounded-2 p-5  outline-none"
                   type="number"
                   name="prix"
-                  placeholder="Price"
+                  placeholder="Prix"
                 ></input>
 
                 <div className="md:w-[50px]  md:h-[50px]  text-center flex items-center justify-center">
@@ -238,7 +238,7 @@ export default function PostForm() {
                 </div>
               </div>
               {errors.prix ? (
-                <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+                <div className="text-sm text-akkar-orange text-left  mt-[0px]">
                   {" "}
                   {errors.prix.message}
                 </div>
@@ -253,12 +253,12 @@ export default function PostForm() {
               cols={30}
               type="paragraph-text"
               name="description"
-              placeholder="Description (Max 511 caractres)"
+              placeholder="Description (Max 511 caractères)"
             ></textarea>
           </div>
         </div>
-        <p className="text-left text-xl md:text-3xl font-normal md:mr-[550px]">
-          localisation du bien{" "}
+        <p className="text-left text-xl md:text-3xl font-normal md:mr-[620px]">
+          Localisation {" "}
         </p>
         <div className="w-full h-fit flex flex-col items-center justify-center gap-y-[50px]">
           <div className="w-full flex flex-col md:flex-row items-center justify-center gap-y-[25px] md:gap-x-[20px]">
@@ -283,7 +283,7 @@ export default function PostForm() {
                 })}
               </select>
               {errors.wilaya ? (
-                <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+                <div className="text-sm text-akkar-orange text-left  mt-[0px]">
                   {" "}
                   {errors.wilaya.message}
                 </div>
@@ -314,7 +314,7 @@ export default function PostForm() {
                 })}
               </select>
               {errors.commune ? (
-                <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+                <div className="text-sm text-akkar-orange text-left  mt-[0px]">
                   {" "}
                   {errors.commune.message}
                 </div>
@@ -341,7 +341,7 @@ export default function PostForm() {
               ></input>
             </div>
             {errors.localisation ? (
-              <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+              <div className="text-sm text-akkar-orange text-left  mt-[0px]">
                 {" "}
                 {errors.localisation.message}
               </div>
@@ -349,7 +349,7 @@ export default function PostForm() {
           </div>
         </div>
         <p className="text-left text-xl md:text-3xl font-normal md:mr-[620px]">
-          Add photos
+          Ajouter des photos
         </p>
         <div
           id="photosSection"
@@ -364,9 +364,9 @@ export default function PostForm() {
             </div>
             <label
               for="input"
-              className="text-lg text-[#B3A39B] text-center cursor-pointer"
+              className="text-lg text-[#B3A39B] text-center m-5 cursor-pointer"
             >
-              You can add up to 10 photos
+              Vous pouvez ajouter jusau'à 10 photos
             </label>
             <input
               type="file"
@@ -410,7 +410,7 @@ export default function PostForm() {
         {selectedImages.length > 10 ? (
           <div className="text-center text-xl text-akkar-orange">
             {" "}
-            Can t upload more than 10 photos , try again{" "}
+            Vous ne pouvez pas ajouter plus de 10 photos,réessayez  {" "}
           </div>
         ) : null}
         <p className="text-left text-xl md:text-3xl font-normal md:mr-[620px]">
@@ -424,11 +424,11 @@ export default function PostForm() {
                 className="w-[330px] h-[45px] rounded-2 p-5  outline-none"
                 type="text"
                 name="nom"
-                placeholder="Family name"
+                placeholder="Nom"
               ></input>
             </div>
             {errors.nom ? (
-              <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+              <div className="text-sm text-akkar-orange text-left  mt-[0px]">
                 {" "}
                 {errors.nom.message}
               </div>
@@ -441,11 +441,11 @@ export default function PostForm() {
                 className="w-[330px] h-[45px] rounded-2 p-5  outline-none"
                 type="text"
                 name="prenom"
-                placeholder="First name"
+                placeholder="Prénom"
               ></input>
             </div>
             {errors.prenom ? (
-              <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+              <div className="text-sm text-akkar-orange text-left  mt-[0px]">
                 {" "}
                 {errors.prenom.message}
               </div>
@@ -460,12 +460,12 @@ export default function PostForm() {
                 className="w-[330px] h-[45px] rounded-2 p-5  outline-none"
                 type="text"
                 name="telephone"
-                placeholder="Telephone"
+                placeholder="Numéro de téléphone"
               ></input>
               <img src={tel} className="w-[25px] h-[25px] ml-[20px]"></img>
             </div>
             {errors.telephone ? (
-              <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+              <div className="text-sm text-akkar-orange text-left  mt-[0px]">
                 {" "}
                 {errors.telephone.message}
               </div>
@@ -478,11 +478,11 @@ export default function PostForm() {
                 className="w-[330px] h-[45px] rounded-2 p-5  outline-none"
                 type="text"
                 name="adresseannonceur"
-                placeholder="Adress"
+                placeholder="Adresse"
               ></input>
             </div>
             {errors.adresseannonceur ? (
-              <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+              <div className="text-sm text-akkar-orange text-left  mt-[0px]">
                 {" "}
                 {errors.adresseannonceur.message}
               </div>
@@ -501,7 +501,7 @@ export default function PostForm() {
             ></input>
           </div>
           {errors.email ? (
-            <div className="text-sm text-akkar-orange text-left absolute mt-[50px]">
+            <div className="text-sm text-akkar-orange text-left  mt-[0px]">
               {" "}
               {errors.email.message}
             </div>
@@ -510,9 +510,9 @@ export default function PostForm() {
 
         <button
           type="submit"
-          className="  w-[200px] h-[50px] md:w-[300px] md:h-[60px] bg-akkar-orange text-white   text-xl"
+          className="  w-[200px] h-[50px] md:w-[300px] md:h-[60px] bg-akkar-orange text-white   text-xl md:text-[28px]"
         >
-          Post Real Estate
+          Publier
         </button>
 
         {/** just to test the onSubmit methode */}

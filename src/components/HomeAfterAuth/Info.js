@@ -16,19 +16,19 @@ export default function Info(props) {
         </p>
       </div>
       <div className="flex flex-row  items-center w-[500px]  md:w-[500px] h-[20px] gap-x-[130px] p-6 border-b-[2px] border-b-[#F6EDE8]">
-        <p className="text-black text-lg font-normal text-left ">Price</p>
+        <p className="text-black text-lg font-normal text-left ">Prix</p>
         <p className="text-black text-lg font-normal text-left ">
           {props.price} DA
         </p>
       </div>
       <div className="flex flex-row  items-center w-[500px]  md:w-[500px] h-[20px] gap-x-[135px] p-6 border-b-[2px] border-b-[#F6EDE8]">
-        <p className="text-black text-lg font-normal text-left ">Area</p>
+        <p className="text-black text-lg font-normal text-left ">Surface</p>
         <p className="text-black text-lg font-normal text-left ">
           {props.area}m^2
         </p>
       </div>
       <div className="flex flex-row  items-center w-[500px]  md:w-[500px] h-[20px] gap-x-[100px] p-6 border-b-[2px] border-b-[#F6EDE8]">
-        <p className="text-black text-lg font-normal text-left ">Category</p>
+        <p className="text-black text-lg font-normal text-left ">Categorie</p>
         <p className="text-black text-lg font-normal text-left ">{props.cat}</p>
       </div>
       <div className="flex flex-row  items-center w-[500px]  md:w-[500px] h-[20px] gap-x-[140px] p-6 border-b-[2px] border-b-[#F6EDE8]">
